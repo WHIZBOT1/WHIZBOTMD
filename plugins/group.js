@@ -122,7 +122,7 @@ smd({
       const groupInviteLink = `${baseUrl}${groupInviteCode}`;
       const contextInfo = {
         externalAdReply: {
-          title: "*ASTA*-𝗠𝗗",
+          title: "*whizbot*-𝗠𝗗",
         },
       };
  
@@ -1808,7 +1808,7 @@ cmd(
         forwardingScore: 999,
         isForwarded: true,
         externalAdReply: {
-          title: "Suhail-Md Broadcast",
+          title: "whizbot-Md Broadcast",
           body: _0x553d05.senderName,
           renderLargerThumbnail: true,
           thumbnail: log0,

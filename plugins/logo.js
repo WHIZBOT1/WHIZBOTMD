@@ -10,7 +10,7 @@ smd(
   async (message, match, { cmdName }) => {
     try {
       if (!match)
-        return message.reply(`*_Example : ${prefix + cmdName} Asta_*`);
+        return message.reply(`*_Example : ${prefix + cmdName} whizbot_*`);
       await require(lib_dir).textToLogoGenerator(
         message,
         "hieu-ung-chu/tao-hieu-ung-chu-mam-anh-sang-74",
