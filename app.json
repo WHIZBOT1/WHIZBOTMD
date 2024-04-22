@@ -1,8 +1,8 @@
 {
-  "name": "asta-md",
+  "name": "whizbot-md",
   "description": "Simple WhatsApp Bot",
-  "logo": "https://i.imgur.com/ZkBjWK2.jpg",
-  "keywords": "Asta-Md",
+  "logo": "https://telegra.ph/file/24e2c2c0fcdcf17df52ac.jpg",
+  "keywords": "whizbot-Md",
   
   "env": {
     "HEROKU_API_KEY": {
@@ -17,13 +17,13 @@
     },
     "OWNER_NAME": {
       "description": "Name for Bot Owner",    
-      "value": "Astro",
+      "value": "whizbot",
       "required" :true
     }, 
     "BOT_NAME": {
       "description": " NAME FOR BOT",
       "required" :false,    
-      "value": "ᴀsᴛᴀ-ᴍᴅ"
+      "value": "whizbot-ᴍᴅ"
     }, 
     "PREFIX": {
       "description": "Enter your desired prefix for bot. you can set `all | . | .!*`",
@@ -31,7 +31,7 @@
     },
     "OWNER_NUMBER": {
       "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
-      "value": "2348039607375"
+      "value": "1876335123"
     },
     "SESSION_ID": {
       "description": "put your SESSION_ID here.",
@@ -45,7 +45,7 @@
     "USER_IMAGES": {
       "description": "Image for bot",
       "required" :false,    
-      "value": "https://i.imgur.com/DoPFyzc.jpg,https://i.imgur.com/YgdZA3l.jpg,https://i.imgur.com/K4IEW12.jpg,https://i.imgur.com/q5MAdYt.jpg,https://i.imgur.com/z20pSwu.jpg,https://i.imgur.com/Xp1b2vG.jpg,https://i.imgur.com/OQOH4Gn.jpeg,https://i.imgur.com/lIo3cM2.jpeg"
+      "value": "https://telegra.ph/file/24e2c2c0fcdcf17df52ac.jpg,https://i.imgur.com/YgdZA3l.jpg,https://i.imgur.com/K4IEW12.jpg,https://i.imgur.com/q5MAdYt.jpg,https://telegra.ph/file/fdb8a838ba793dc16a9f8.jpg,https://i.imgur.com/OQOH4Gn.jpeg,https://i.imgur.com/lIo3cM2.jpeg"
     }, 
     "TZ": {
       "description": "Put TIME_ZONE according to your location",
@@ -109,7 +109,7 @@
     },
     "PACK_NAME": {
       "description": "Put Sticker Pack_Name.",
-      "value": "ᴀsᴛᴀ-ᴍᴅ",
+      "value": "whizbot-ᴍᴅ",
       "required": false 
     },
     "PACK_AUTHER": {
