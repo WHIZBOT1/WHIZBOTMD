@@ -4,7 +4,7 @@ const bot = require(__dirname + '/lib/runner')
 const { VERSION } = require(__dirname + '/config')
 
 const start = async () => {
-    Debug.info(`whizbot ${VERSION}`)
+    Debug.info(`ASTA ${VERSION}`)
   try {
     await bot.init()
     bot.logger.info('⏳ Starting App!')
