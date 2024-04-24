@@ -10,7 +10,7 @@
 #### Star whizbot Md & Fork
 
 <center>
-<a href="https://github.com/Unknownbotic/WHIZBOT-Md/fork"><img title="WHIZBOT-MD" src="https://img.shields.io/badge/FORK WHIZBOT-MD-h?color=black&style=for-the-badge&logo=stackshare"></a>  <a href="https://asta-app-52c5fcbed3fa.herokuapp.com/qr"><img title="SCAN QR " src="https://img.shields.io/badge/SCAN QR -h?color=black&style=for-the-badge&logo=msi"></a> <a href="https://asta-app-52c5fcbed3fa.herokuapp.com/pair"><img title="PARING CODE" src="https://img.shields.io/badge/PARING CODE -h?color=black&style=for-the-badge&logo=msi"></a>
+<a href="https://github.com/WHIZBOT1/WHIZBOTMD/fork"><img title="WHIZBOT-MD" src="https://img.shields.io/badge/FORK WHIZBOT-MD-h?color=black&style=for-the-badge&logo=stackshare"></a>  <a href="https://asta-app-52c5fcbed3fa.herokuapp.com/qr"><img title="SCAN QR " src="https://img.shields.io/badge/SCAN QR -h?color=black&style=for-the-badge&logo=msi"></a> <a href="https://asta-app-52c5fcbed3fa.herokuapp.com/pair"><img title="PARING CODE" src="https://img.shields.io/badge/PARING CODE -h?color=black&style=for-the-badge&logo=msi"></a>
 
  ### WHIZ BOT Deploy Methods
 
