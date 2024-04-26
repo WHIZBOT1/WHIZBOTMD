@@ -45,7 +45,7 @@
     "USER_IMAGES": {
       "description": "Image for bot",
       "required" :false,    
-      "value": "https://telegra.ph/file/24e2c2c0fcdcf17df52ac.jpg,https://i.imgur.com/YgdZA3l.jpg,https://i.imgur.com/K4IEW12.jpg,https://i.imgur.com/q5MAdYt.jpg,https://telegra.ph/file/fdb8a838ba793dc16a9f8.jpg,https://i.imgur.com/OQOH4Gn.jpeg,https://i.imgur.com/lIo3cM2.jpeg"
+      "value": "https://telegra.ph/file/e368b03d718db7b0923a1.jpg,https://telegra.ph/file/1b27ed897c3a78bbd70c7.jpg,https://telegra.ph/file/94a2f36bfa0cc40ed5505.jpg,https://telegra.ph/file/8dcfb93c86c0b6f109e96.jpg"
     }, 
     "TZ": {
       "description": "Put TIME_ZONE according to your location",
