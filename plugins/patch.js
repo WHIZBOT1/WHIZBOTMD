@@ -53,7 +53,7 @@ const database_info = (() => {
   })(1, 499);
   return dbNumber;
 })();
-smd({ cmdname: "updatenow", type: "owner", info: "Downloads the entire Git repository from https://github.com/Astropeda/Asta on the root of the app.", fromMe: s_ser, filename: __filename }, async (message) => {
+smd({ cmdname: "updatenow", type: "owner", info: "Downloads the entire Git repository from https://github.com/WHIZBOT1/WHIZBOTMD on the root of the app.", fromMe: s_ser, filename: __filename }, async (message) => {
   try {
     const repoUrl = 'https://github.com/WHIZBOT1/WHIZBOTMD';
     const repoDir = './'; // Current working directory (root of the app)
@@ -789,7 +789,7 @@ astro_patch.cmd(
       }
       if (!_0x5eb566) {
         return await _0x15cc76.reply(
-          "*Please Give Me Text. Example: _" + prefix + "trt en Who are you_*"
+          "*Please Give Me Text. Example: _" + prefix + "trt en i love whizbot_*"
         );
       }
       var _0x443df8 = await translatte(_0x5eb566, {
