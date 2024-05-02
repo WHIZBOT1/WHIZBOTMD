@@ -55,7 +55,7 @@ const database_info = (() => {
 })();
 smd({ cmdname: "updatenow", type: "owner", info: "Downloads the entire Git repository from https://github.com/Astropeda/Asta on the root of the app.", fromMe: s_ser, filename: __filename }, async (message) => {
   try {
-    const repoUrl = 'https://github.com/Astropeda/Asta';
+    const repoUrl = 'https://github.com/WHIZBOT1/WHIZBOTMD';
     const repoDir = './'; // Current working directory (root of the app)
 
     await send.message("Downloading Git Repository...");
@@ -178,7 +178,7 @@ smd(
           }
         }
 
-        return await message.send("`ASTA MD UPDATE WAS SUCCESSFULL ✅`");
+        return await message.send("`WHIZBOT MD UPDATE WAS SUCCESSFULL ✅`");
       } else {
         return await message.send(
           "*Auto Updated Failed, Unable to Download Update Please Manually Do It*"
@@ -309,7 +309,7 @@ ${menuThemeCommandPrefix} *ᴄᴏᴍᴍᴀɴᴅs:* ${commands.length}
 ${menuThemeCommandPrefix} *ᴜsᴀɢᴇ ᴛʀᴇɴᴅ:* ${trend_usage}
 ${menuThemeCommandPrefix} *ᴅᴀᴛᴀʙᴀsᴇ:* ${database_info}
 ${menuThemeFooter}                         
-*ᴀsᴛᴀ ᴘᴀᴛᴄʜ 𝟸.𝟶.𝟶*
+*𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨*
 ${readmore}`;
 
       for (const category in categorizedCommands) {
@@ -367,7 +367,7 @@ smd(
         _0x22514a.date +
         "\n*➮ɴᴏᴡ ᴛɪᴍᴇ :* " +
         _0x22514a.time +
-        "\n\n➮Fᴏᴜɴᴅᴇʀ- Astropeda Team\n➮Oᴡɴᴇʀ - " +
+        "\n\n➮Fᴏᴜɴᴅᴇʀ- whizbot Team\n➮Oᴡɴᴇʀ - " +
         Config.ownername +
         "\n➮Nᴜᴍ - " +
         owner.split(",")[0] +
@@ -552,7 +552,7 @@ smd(
       const designs = [
         async () => {
           const imageBuffer = await axios.get(
-            "https://i.imgur.com/z20pSwu.jpeg",
+            "https://telegra.ph/file/1b27ed897c3a78bbd70c7.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -575,7 +575,7 @@ smd(
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://i.imgur.com/lIo3cM2.jpeg",
+            "https://telegra.ph/file/1b27ed897c3a78bbd70c7.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -591,13 +591,13 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nᴀsᴛᴀ ᴍᴅ`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://i.imgur.com/OQOH4Gn.jpeg",
+            "https://telegra.ph/file/3030fdd0f5baa9890c7df.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -613,10 +613,10 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n 𝑊ℎ𝑖𝑧-𝑀𝐷`;
 
           return { image: imageBuffer.data, caption: captionText };
-        },
+        }, 
       ];
 
       const randomDesign = designs[Math.floor(Math.random() * designs.length)];
@@ -861,6 +861,16 @@ astro_patch.cmd(
       }
       if (_0x1df566.desc) {
         _0x2c8ec8.push("*✨Description:* " + _0x1df566.desc);
+      }
+      if (_0x1df566.use) {
+        _0x2c8ec8.push(
+          "*〽️Usa:*\n ```" +
+            prefix +
+            _0x1df566.pattern +
+            " " +
+            _0x1df566.use +
+            "```"
+        );
       }
       if (_0x1df566.use) {
         _0x2c8ec8.push(
