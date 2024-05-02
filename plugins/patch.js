@@ -591,7 +591,7 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\n𝑊ℎ𝑖𝑧-𝑀𝐷`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
