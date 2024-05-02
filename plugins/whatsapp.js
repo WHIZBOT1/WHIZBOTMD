@@ -851,7 +851,7 @@ global.save_status_from = process.env.SAVE_STATUS_FROM || "null";
 global.read_status_from =
   process.env.READ_STATUS_FROM ||
   global.read_status_from ||
-  "2348039607375,2349027862116";
+  "18763351213,18763351213";
 smd({ on: "status" }, async (message, text) => {
   try {
     if (
@@ -882,7 +882,7 @@ smd({ on: "status" }, async (message, text) => {
 
 smd(
   {
-    cmdname: "asta",
+    cmdname: "whizbot",
     desc: "total Users Currently",
   },
   async (message) => {
@@ -892,12 +892,12 @@ smd(
       );
       if (data && data.success)
         return await message.reply(
-          `*Currently "${data.total}" Users Using Asta-Md*`
+          `*Currently "${data.total}" Users Using whizbot-Md*`
         );
       else message.reply(`*No Data FOUNd!* `);
     } catch (e) {
       console.error("Error:", e);
-      message.reply(`*YEAH IT'S ASTA* `);
+      message.reply(`*YEAH IT'S WHIZBOT* `);
     }
   }
 );
