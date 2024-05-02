@@ -613,10 +613,10 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n𝑊ℎ𝑖𝑧-𝑀𝐷';
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n 𝑊ℎ𝑖𝑧-𝑀𝐷`;
 
           return { image: imageBuffer.data, caption: captionText };
-        },
+        }, 
       ];
 
       const randomDesign = designs[Math.floor(Math.random() * designs.length)];
@@ -662,7 +662,7 @@ smd(
 
       const cpuName = process.cpuData ? process.cpuData.modelName : "Unknown";
 
-      const message = `*whizbot MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
+      const message = `*Asta MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
 
       const button = [
         {
@@ -675,9 +675,9 @@ smd(
       const contextInfo = {
         isForwarded: true,
         forwardingScore: 999,
-        title: "whizbot MD Running Since",
+        title: "Asta MD Running Since",
         body: message,
-        footerText: "whizbot MD 2024",
+        footerText: "Asta MD 2024",
         isSendNotificationMsg: true,
         mentionedJid: [],
         buttons: button,
@@ -861,6 +861,16 @@ astro_patch.cmd(
       }
       if (_0x1df566.desc) {
         _0x2c8ec8.push("*✨Description:* " + _0x1df566.desc);
+      }
+      if (_0x1df566.use) {
+        _0x2c8ec8.push(
+          "*〽️Usa:*\n ```" +
+            prefix +
+            _0x1df566.pattern +
+            " " +
+            _0x1df566.use +
+            "```"
+        );
       }
       if (_0x1df566.use) {
         _0x2c8ec8.push(
