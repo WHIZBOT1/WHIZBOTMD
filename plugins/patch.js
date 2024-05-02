@@ -178,7 +178,7 @@ smd(
           }
         }
 
-        return await message.send("`ASTA MD UPDATE WAS SUCCESSFULL ✅`");
+        return await message.send("`WHIZBOT MD UPDATE WAS SUCCESSFULL ✅`");
       } else {
         return await message.send(
           "*Auto Updated Failed, Unable to Download Update Please Manually Do It*"
@@ -613,7 +613,7 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n𝑊ℎ𝑖𝑧-𝑀𝐷';
 
           return { image: imageBuffer.data, caption: captionText };
         },
@@ -662,7 +662,7 @@ smd(
 
       const cpuName = process.cpuData ? process.cpuData.modelName : "Unknown";
 
-      const message = `*Asta MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
+      const message = `*whizbot MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
 
       const button = [
         {
