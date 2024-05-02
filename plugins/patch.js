@@ -375,7 +375,7 @@ smd(
         formatp(os.totalmem() - os.freemem()) +
         "/" +
         formatp(os.totalmem()) +
-        "\n\n *🧑‍💻 :*  ᴀsᴛᴀ ᴍᴅ ɪꜱ ɴᴏᴡ Aᴠᴀɪʟᴀʙʟᴇ\n\n" +
+        "\n\n *🧑‍💻 :*  whizbot md ɪꜱ ɴᴏᴡ Aᴠᴀɪʟᴀʙʟᴇ\n\n" +
         readmore +
         "\n╭──❰ *ALL MENU* ❱\n│🏮 Lɪꜱᴛ\n│🏮 Cᴀᴛᴇɢᴏʀʏ\n│🏮 Hᴇʟᴘ\n│🏮 Aʟɪᴠᴇ\n│🏮 Uᴘᴛɪᴍᴇ\n│🏮 Wᴇᴀᴛʜᴇʀ\n│🏮 Lɪɴᴋ\n│🏮 Cᴘᴜ\n│🏮 Rᴇᴘᴏꜱɪᴛᴏʀʏ\n╰─────────────⦁"
       ).trim();
@@ -569,7 +569,7 @@ smd(
           const quoteText = `\n\n*"${quote.result.body}"*\n_- ${quote.result.author}_`;
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\n 𝑊𝛨𝛪𝛧𝐵𝛩𝑇`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
@@ -677,7 +677,7 @@ smd(
         forwardingScore: 999,
         title: "Asta MD Running Since",
         body: message,
-        footerText: "Asta MD 2024",
+        footerText: "whizbot MD 2024",
         isSendNotificationMsg: true,
         mentionedJid: [],
         buttons: button,
