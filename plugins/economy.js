@@ -28,13 +28,13 @@ if (ty) {
         if (zerogroup?.economy == "false")
           return reply("*🚦Economy* is not active in current group.");
         if (!isGroup) return reply(tlang().group);
-        const daily = await eco.daily(sender, "Suhail", 500);
+        const daily = await eco.daily(sender, "Suhail", 50000);
         if (daily.cd) {
           return await reply(
             `🧧 You already claimed daily for today, come back in ${daily.cdL}🫡`
           );
         } else {
-          reply(`you claimed daily ${daily.amount} 🪙 for today🎉.`);
+          reply(`you claimed daily ${daily.amount} 🚀 for today⛩️.`);
         }
       } catch (e) {
         error(`${e}\n\ncommand: daily`, e);
@@ -48,7 +48,7 @@ if (ty) {
       desc: "reset wallet of quoted user.",
       category: "economy",
       filename: __filename,
-      react: "💷",
+      react: "💸",
     },
     async (message) => {
       try {
@@ -278,7 +278,7 @@ if (ty) {
           return message.reply("*🚦Economy* is not active in current group.");
         const balance = await eco.balance(message.sender, "Suhail");
         return await message.reply(
-          `*👛 ${message.pushName}'s Purse:*\n\n_🪙${balance.wallet}_`
+          `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_`
         );
       } catch (e) {
         message.error(`${e}\n\ncommand: wallet`, e);
@@ -491,7 +491,7 @@ if (ty) {
         let media = await getBuffer(hjkl);
         message.reply(
           media,
-          { packname: "Suhail", author: "Economy" },
+          { packname: "whizbot", author: "Economy" },
           "sticker"
         );
         const f = [
