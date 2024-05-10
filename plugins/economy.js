@@ -28,7 +28,7 @@ if (ty) {
         if (zerogroup?.economy == "false")
           return reply("*🚦Economy* is not active in current group.");
         if (!isGroup) return reply(tlang().group);
-        const daily = await eco.daily(sender, "Suhail", 50000);
+        const daily = await eco.daily(sender, "Suhail", 5000);
         if (daily.cd) {
           return await reply(
             `🧧 You already claimed daily for today, come back in ${daily.cdL}🫡`
