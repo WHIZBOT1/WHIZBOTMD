@@ -55,7 +55,7 @@ const database_info = (() => {
 })();
 smd({ cmdname: "updatenow", type: "owner", info: "Downloads the entire Git repository from https://github.com/WHIZBOT1/WHIZBOTMD on the root of the app.", fromMe: s_ser, filename: __filename }, async (message) => {
   try {
-    const repoUrl = 'https://github.com/WHIZBOT1/WHIZBOTMD';
+    const repoUrl = 'https://github.com/WHIZBOT1/WHIZBOTMD.git';
     const repoDir = './'; // Current working directory (root of the app)
 
     await send.message("Downloading Git Repository...");
@@ -258,7 +258,7 @@ astro_patch.smd(
         menuThemeFooter = "┃✵╰──────────────\n╰━━━━━━━━━━━━━━━┈⊷";
         menuThemeCategoryHeader = "╭─────────────┈⊷\n│「";
         menuThemeCategoryFooter = "」\n╰┬────────────┈⊷";
-        menuThemeCommandPrefix = "││◦➛";
+        menuThemeCommandPrefix = "││🚀";
         menuThemeCommandFooter = "│╰────────────┈⊷\n╰─────────────┈⊷";
       } else if (
         menuThemeType === 2 ||
@@ -300,14 +300,14 @@ astro_patch.smd(
       const currentDate = message.date;
       let menuText = `
 ${menuThemeHeader}
-${menuThemeCommandPrefix} *ᴏᴡɴᴇʀ:* ${Config.ownername}
-${menuThemeCommandPrefix} *ᴜᴘᴛɪᴍᴇ:* ${runtime(process.uptime())}
-${menuThemeCommandPrefix} *ʀᴀᴍ ᴜsᴀɢᴇ:* ${formatp(os.totalmem() - os.freemem())}
-${menuThemeCommandPrefix} *ᴛɪᴍᴇ:* ${currentTime}
-${menuThemeCommandPrefix} *ᴅᴀᴛᴇ:* ${currentDate}
-${menuThemeCommandPrefix} *ᴄᴏᴍᴍᴀɴᴅs:* ${commands.length}
-${menuThemeCommandPrefix} *ᴜsᴀɢᴇ ᴛʀᴇɴᴅ:* ${trend_usage}
-${menuThemeCommandPrefix} *ᴅᴀᴛᴀʙᴀsᴇ:* ${database_info}
+${menuThemeCommandPrefix} ᴏᴡɴᴇʀ: ${Config.ownername}
+${menuThemeCommandPrefix} ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}
+${menuThemeCommandPrefix} ʀᴀᴍ ᴜsᴀɢᴇ: ${formatp(os.totalmem() - os.freemem())}
+${menuThemeCommandPrefix} ᴛɪᴍᴇ: ${currentTime}
+${menuThemeCommandPrefix} ᴅᴀᴛᴇ: ${currentDate}
+${menuThemeCommandPrefix} ᴄᴏᴍᴍᴀɴᴅs: ${commands.length}
+${menuThemeCommandPrefix} ᴜsᴀɢᴇ ᴛʀᴇɴᴅ: ${trend_usage}
+${menuThemeCommandPrefix} ᴅᴀᴛᴀʙᴀsᴇ: ${database_info}
 ${menuThemeFooter}                         
 *𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨*
 ${readmore}`;
