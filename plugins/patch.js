@@ -279,7 +279,7 @@ astro_patch.smd(
         menuThemeFooter = "╰═══════════════⊷";
         menuThemeCategoryHeader = "╭─❍";
         menuThemeCategoryFooter = "══⊷❍";
-        menuThemeCommandPrefix = "│";
+        menuThemeCommandPrefix = "│🚀";
         menuThemeCommandFooter = "╰════════════─⊷";
       }
 
@@ -309,7 +309,7 @@ ${menuThemeCommandPrefix} ᴄᴏᴍᴍᴀɴᴅs: ${commands.length}
 ${menuThemeCommandPrefix} ᴜsᴀɢᴇ ᴛʀᴇɴᴅ: ${trend_usage}
 ${menuThemeCommandPrefix} ᴅᴀᴛᴀʙᴀsᴇ: ${database_info}
 ${menuThemeFooter}                         
-*𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨*
+𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨
 ${readmore}`;
 
       for (const category in categorizedCommands) {
