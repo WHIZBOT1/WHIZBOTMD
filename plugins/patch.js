@@ -267,12 +267,12 @@ astro_patch.smd(
       ) {
         menuThemeHeader =
           "╭═══ *" + Config.botname + "* ═══⊷\n┃❃╭──────────────";
-        menuThemeCommandPrefix = "┃❃│";
-        menuThemeFooter = "┃❃╰───────────────\n╰═════════════════⊷";
+        menuThemeCommandPrefix = "┃🚀┃";
+        menuThemeFooter = "┃🚀╰───────────────\n╰═════════════════⊷";
         menuThemeCategoryHeader = "╭─❏";
         menuThemeCategoryFooter = "❏";
-        menuThemeCommandPrefix = "┃❃│";
-        menuThemeCommandFooter = "┃❃╰───────────────\n╰═════════════════⊷";
+        menuThemeCommandPrefix = "┃🚀│";
+        menuThemeCommandFooter = "┃🚀╰───────────────\n╰═════════════════⊷";
       } else {
         menuThemeHeader = "╭〘  " + Config.botname + "  〙";
         menuThemeCommandPrefix = "│ │";
