@@ -2163,7 +2163,7 @@ smd(
         }
       } else {
         return await _0xb9222e.send(
-          "*_Hey @" + _0x5746a6.split("@")[0] + " warning added maybe because you have broken a rule,please follow the rules or will be removed!!!_*",
+          "*_Hey @" + _0x5746a6.split("@")[0] + " warning added maybe because you have broken a rule,please follow the rules or you will be removed!!!_*",
           {
             mentions: [_0x5746a6],
           }
