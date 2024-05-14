@@ -122,7 +122,7 @@ smd({
       const groupInviteLink = `${baseUrl}${groupInviteCode}`;
       const contextInfo = {
         externalAdReply: {
-          title: "*ASTA*-𝗠𝗗",
+          title: "*WHIZBOT*-𝗠𝗗",
         },
       };
  
@@ -1808,7 +1808,7 @@ cmd(
         forwardingScore: 999,
         isForwarded: true,
         externalAdReply: {
-          title: "Suhail-Md Broadcast",
+          title: "whizbot-Md Broadcast",
           body: _0x553d05.senderName,
           renderLargerThumbnail: true,
           thumbnail: log0,
@@ -2163,7 +2163,7 @@ smd(
         }
       } else {
         return await _0xb9222e.send(
-          "*_Hey @" + _0x5746a6.split("@")[0] + " warning added, Don't spam!_*",
+          "*_Hey @" + _0x5746a6.split("@")[0] + " warning added maybe because you have broken a rule,please follow the rules or will be removed!!!_*",
           {
             mentions: [_0x5746a6],
           }
