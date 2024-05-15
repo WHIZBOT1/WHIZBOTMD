@@ -418,10 +418,7 @@ smd(
         (_0x3b568a
           ? "```🔢Reply the number you wants to select``` \n\n"
           : "```\t\t" +
-            prefix +
-            "fancy whizbot(For all text)\n\t\t" +
-            prefix +
-            "fancy 25 whizbot(For specific text)```\n\n");
+            
       let _0x50c7d9 = parseInt(_0x3b568a);
       if (isNaN(_0x50c7d9)) {
         let _0x4ca942 = _0x3b568a ? _0x3b568a : "whizbot";
