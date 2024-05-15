@@ -8,7 +8,7 @@ let s_ser = true;
 const axios = require('axios');
 const botPrefix = ""; // Define your bot prefix here
 
-$smd({
+smd({
   pattern: botPrefix + "repo",
   desc: "get bot repository",
   category: "info",
