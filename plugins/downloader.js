@@ -448,7 +448,7 @@ smd({
   try {
     let _0x59e849 = _0x1c586e ? _0x1c586e : _0x1ae8f8.reply_message ? _0x1ae8f8.reply_message.text : "";
     if (!_0x1c586e) {
-      return await _0x1ae8f8.reply("*Provide Repo Url, _.gitclone https://github.com/Astropeda/Asta-Md_*");
+      return await _0x1ae8f8.reply("*Provide Repo Url, _.gitclone https://github.com/WHIZBOT1/WHIZBOTMD_*");
     }
     const _0x5906ab = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i;
     if (!_0x5906ab.test(_0x1c586e)) {
