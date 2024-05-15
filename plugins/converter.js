@@ -424,7 +424,7 @@ smd(
             "fancy 25 whizbot(For specific text)```\n\n");
       let _0x50c7d9 = parseInt(_0x3b568a);
       if (isNaN(_0x50c7d9)) {
-        let _0x4ca942 = _0x3b568a ? _0x3b568a : "Asta";
+        let _0x4ca942 = _0x3b568a ? _0x3b568a : "whizbot";
         listall(_0x4ca942).forEach((_0x51f58f, _0x2be109) => {
           _0x365550 += "\n" + (_0x2be109 += 1) + " " + _0x51f58f + "\n";
         });
