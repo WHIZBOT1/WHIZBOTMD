@@ -414,14 +414,14 @@ smd(
   async (_0x230c03, _0x3b568a) => {
     try {
       let _0x365550 =
-        "┏━━━━━━━━━━━━━━━━━━━━━━━━\n┃\t*💬ASTA-MD_FANCY_TEXT💬* \n┗━━━━━━━━━━━━━━━━━━━━━━━━\n\n " +
+        "┏━━━━━━━━━━━━━━━━━━━━━━━━\n┃\t*💬WHIZBOT-MD_FANCY_TEXT💬* \n┗━━━━━━━━━━━━━━━━━━━━━━━━\n\n " +
         (_0x3b568a
           ? "```🔢Reply the number you wants to select``` \n\n"
           : "```\t\t" +
             prefix +
-            "fancy Asta(For all text)\n\t\t" +
+            "fancy whizbot(For all text)\n\t\t" +
             prefix +
-            "fancy 25 Asta(For specific text)```\n\n");
+            "fancy 25 whizbot(For specific text)```\n\n");
       let _0x50c7d9 = parseInt(_0x3b568a);
       if (isNaN(_0x50c7d9)) {
         let _0x4ca942 = _0x3b568a ? _0x3b568a : "Asta";
