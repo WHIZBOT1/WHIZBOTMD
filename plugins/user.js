@@ -619,3 +619,43 @@ smd(
     }
   }
 );
+
+
+const botOwner = "wa.me/18763351213"; // Replace with your bot owner's ID
+const botPrefix = ""; // Define your bot prefix here
+
+// Array to store banned user IDs (you can replace this with a database)
+let bannedUsers = [];
+
+smd({
+  pattern: botPrefix + "ban",
+  desc: "Ban a user from using the bot.",
+  category: "admin",
+  filename: __filename,
+  use: botPrefix + "ban [user_id]",
+},
+async (m) => {
+  try {
+    // Check if the command is sent by the bot owner
+    if (m.sender === botOwner) {
+      // Extract the user ID from the command
+      const userId = m.command[1];
+      
+      // Check if the user is not already banned
+      if (!bannedUsers.includes(userId)) {
+        // Add the user to the banned users list
+        bannedUsers.push(userId);
+        
+        // Send a confirmation message
+        await m.reply(`User ${userId} has been banned from using the bot.`);
+      } else {
+        await m.reply(`User ${userId} is already banned.`);
+      }
+    } else {
+      await m.reply("Only the bot owner can use this command.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    // Handle the error here
+  }
+});
