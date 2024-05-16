@@ -45,7 +45,7 @@
     "USER_IMAGES": {
       "description": "Image for bot",
       "required" :false,    
-      "value": "https://telegra.ph/file/e368b03d718db7b0923a1.jpg,https://telegra.ph/file/1b27ed897c3a78bbd70c7.jpg,https://telegra.ph/file/94a2f36bfa0cc40ed5505.jpg,https://telegra.ph/file/8dcfb93c86c0b6f109e96.jpg"
+      "value": "https://telegra.ph/file/9d326d390cebdb4543886.jpg,https://telegra.ph/file/2cad4cf3c25685ce06eeb.jpg,https://telegra.ph/file/4c7669c16aa23c5d905b9.jpg,https://telegra.ph/file/e38b047cb3bbda1b47ade.jpg,https://telegra.ph/file/5ab39d37ec03573d0ae12.jpg"
     }, 
     "TZ": {
       "description": "Put TIME_ZONE according to your location",
@@ -80,7 +80,7 @@
     "MSGS_IN_LOG": {
       "description": "Fill the value -true- if you want to see Messages in logs.",
       "required" :false,
-      "value": "true"
+      "value": "false"
     },
     "READ_MESSAGE": {
       "description": "Fill the value true if you want bot to read all messages.",

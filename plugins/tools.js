@@ -6,96 +6,34 @@ const Config = require("../config");
 const { react } = require("../lib/Asta");
 let s_ser = true;
 const axios = require('axios');
-smd(
- {
-   pattern: "repo",
-   desc: "Show the bot's GitHub repository link.",
-   category: "info",
-   filename: __filename,
-   use: "!repo",
- },
- async (m) => {
-   try {
-     const title = "Asta Md 2.0.0 Patch Github Repo Link";
-     const body = "Asta Md a very Simple WhatsApp bot built in Node Js and Baileys with commands tp improve your whatsapp usage is here to bring a new way to use whatsapp.";
-     const footer = "(copyRight logo text) Astropeda Works";
-     const contextInfo = {
-       forwardingScore: 999,
-       isForwarded: true,
-       externalAdReply: {
-         title: null,
-         body: null,
-         previewType: "PHOTO",
-         thumbnailUrl: null,
-         thumbnail: null,
-         sourceUrl: "https://whatsapp.com/channel/0029VaPGt3QEwEjpBXT4Rv0z",
-       },
-     };
+const botPrefix = ""; // Define your bot prefix here
 
-     const buttons = [
-       {
-         buttonId: "id1",
-         buttonText: { displayText: "Channel Link" },
-         type: 1,
-       },
-     ];
+smd({
+  pattern: botPrefix + "repo",
+  desc: "get bot repository",
+  category: "info",
+  filename: __filename,
+  use: botPrefix + "repo",
+},
+async (m) => {
+  try {
+    // Text to send
+    let text = '';
+    text += `*whizbot* ✨\n\n`;
+    text += `*fork and give a star 🌟 so you can get more updates* \n\n`;
+    text += `⚙️ *Repo Link: https://github.com/WHIZBOT1/WHIZBOT-MD* \n\n`;
+    text += `*bot is still under maintenance*`;
 
-     const buttonMessage = {
-       text: `${body}\n\n${footer}`,
-       footerText: footer,
-       buttons: buttons,
-       headerType: 1,
-     };
-
-     await m.bot.sendMessage(m.from, buttonMessage, {
-       quoted: m.data,
-       contextInfo,
-     });
-   } catch (e) {
-     await m.error(`${e}\n\ncommand: repo`, e);
-   }
- }
-);
-smd(
-  {
-    pattern: "zip",
-    alias: ["zipcode"],
-    desc: "Provides information about a US zip code.",
-    category: "tools",
-    use: "zip [zip_code]",
-    examples: ["zip 90001", "zip 33162"]
-  },
-  async (message, input) => {
-    const zipCode = input;
-
-    if (!zipCode) {
-      return message.reply("Please provide a zip code.");
-    }
-
-    try {
-      const response = await axios.get(`https://api.zippopotam.us/us/${zipCode}`);
-      const { postCode, country, countryAbbreviation, places } = response.data;
-
-      let output = `
-*Zip Code:* ${postCode}
-*Country:* ${country} (${countryAbbreviation})
-*Places:*
-`;
-
-      places.forEach((place, index) => {
-        output += `\n${index + 1}. ${place["place name"]}, ${place.state} (${place.latitude}, ${place.longitude})`;
-      });
-
-      await message.send(output);
-    } catch (error) {
-      await message.error(
-        error + "\n\nCommand: zip",
-        error,
-        "Failed to retrieve zip code information."
-      );
-    }
+    
+    const imageUrl = "https://telegra.ph/file/5fd51597b0270b8cff15b.png";
+    
+    
+    await m.reply(text, { sendImage: true, image: imageUrl });
+  } catch (error) {
+    console.error("Error:", error);
+    
   }
-);
+});
 smd(
   {
     pattern: "channel",

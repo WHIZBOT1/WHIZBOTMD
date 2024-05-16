@@ -53,9 +53,9 @@ const database_info = (() => {
   })(1, 499);
   return dbNumber;
 })();
-smd({ cmdname: "updatenow", type: "owner", info: "Downloads the entire Git repository from https://github.com/Astropeda/Asta on the root of the app.", fromMe: s_ser, filename: __filename }, async (message) => {
+smd({ cmdname: "updatenow", type: "owner", info: "Downloads the entire Git repository from https://github.com/WHIZBOT1/WHIZBOTMD on the root of the app.", fromMe: s_ser, filename: __filename }, async (message) => {
   try {
-    const repoUrl = 'https://github.com/WHIZBOT1/WHIZBOTMD';
+    const repoUrl = 'https://github.com/WHIZBOT1/WHIZBOTMD.git';
     const repoDir = './'; // Current working directory (root of the app)
 
     await send.message("Downloading Git Repository...");
@@ -258,7 +258,7 @@ astro_patch.smd(
         menuThemeFooter = "┃✵╰──────────────\n╰━━━━━━━━━━━━━━━┈⊷";
         menuThemeCategoryHeader = "╭─────────────┈⊷\n│「";
         menuThemeCategoryFooter = "」\n╰┬────────────┈⊷";
-        menuThemeCommandPrefix = "││◦➛";
+        menuThemeCommandPrefix = "││🚀";
         menuThemeCommandFooter = "│╰────────────┈⊷\n╰─────────────┈⊷";
       } else if (
         menuThemeType === 2 ||
@@ -267,19 +267,19 @@ astro_patch.smd(
       ) {
         menuThemeHeader =
           "╭═══ *" + Config.botname + "* ═══⊷\n┃❃╭──────────────";
-        menuThemeCommandPrefix = "┃❃│";
-        menuThemeFooter = "┃❃╰───────────────\n╰═════════════════⊷";
+        menuThemeCommandPrefix = "┃🚀┃";
+        menuThemeFooter = "┃🚀╰───────────────\n╰═════════════════⊷";
         menuThemeCategoryHeader = "╭─❏";
         menuThemeCategoryFooter = "❏";
-        menuThemeCommandPrefix = "┃❃│";
-        menuThemeCommandFooter = "┃❃╰───────────────\n╰═════════════════⊷";
+        menuThemeCommandPrefix = "┃🚀│";
+        menuThemeCommandFooter = "┃🚀╰───────────────\n╰═════════════════⊷";
       } else {
         menuThemeHeader = "╭〘  " + Config.botname + "  〙";
         menuThemeCommandPrefix = "│ │";
         menuThemeFooter = "╰═══════════════⊷";
         menuThemeCategoryHeader = "╭─❍";
         menuThemeCategoryFooter = "══⊷❍";
-        menuThemeCommandPrefix = "│";
+        menuThemeCommandPrefix = "│🚀";
         menuThemeCommandFooter = "╰════════════─⊷";
       }
 
@@ -300,16 +300,16 @@ astro_patch.smd(
       const currentDate = message.date;
       let menuText = `
 ${menuThemeHeader}
-${menuThemeCommandPrefix} *ᴏᴡɴᴇʀ:* ${Config.ownername}
-${menuThemeCommandPrefix} *ᴜᴘᴛɪᴍᴇ:* ${runtime(process.uptime())}
-${menuThemeCommandPrefix} *ʀᴀᴍ ᴜsᴀɢᴇ:* ${formatp(os.totalmem() - os.freemem())}
-${menuThemeCommandPrefix} *ᴛɪᴍᴇ:* ${currentTime}
-${menuThemeCommandPrefix} *ᴅᴀᴛᴇ:* ${currentDate}
-${menuThemeCommandPrefix} *ᴄᴏᴍᴍᴀɴᴅs:* ${commands.length}
-${menuThemeCommandPrefix} *ᴜsᴀɢᴇ ᴛʀᴇɴᴅ:* ${trend_usage}
-${menuThemeCommandPrefix} *ᴅᴀᴛᴀʙᴀsᴇ:* ${database_info}
+${menuThemeCommandPrefix} ᴏᴡɴᴇʀ: ${Config.ownername}
+${menuThemeCommandPrefix} ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}
+${menuThemeCommandPrefix} ʀᴀᴍ ᴜsᴀɢᴇ: ${formatp(os.totalmem() - os.freemem())}
+${menuThemeCommandPrefix} ᴛɪᴍᴇ: ${currentTime}
+${menuThemeCommandPrefix} ᴅᴀᴛᴇ: ${currentDate}
+${menuThemeCommandPrefix} ᴄᴏᴍᴍᴀɴᴅs: ${commands.length}
+${menuThemeCommandPrefix} ᴜsᴀɢᴇ ᴛʀᴇɴᴅ: ${trend_usage}
+${menuThemeCommandPrefix} ᴅᴀᴛᴀʙᴀsᴇ: ${database_info}
 ${menuThemeFooter}                         
-*𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨*
+𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨
 ${readmore}`;
 
       for (const category in categorizedCommands) {
@@ -375,7 +375,7 @@ smd(
         formatp(os.totalmem() - os.freemem()) +
         "/" +
         formatp(os.totalmem()) +
-        "\n\n *🧑‍💻 :*  ᴀsᴛᴀ ᴍᴅ ɪꜱ ɴᴏᴡ Aᴠᴀɪʟᴀʙʟᴇ\n\n" +
+        "\n\n *🧑‍💻 :*  whizbot md ɪꜱ ɴᴏᴡ Aᴠᴀɪʟᴀʙʟᴇ\n\n" +
         readmore +
         "\n╭──❰ *ALL MENU* ❱\n│🏮 Lɪꜱᴛ\n│🏮 Cᴀᴛᴇɢᴏʀʏ\n│🏮 Hᴇʟᴘ\n│🏮 Aʟɪᴠᴇ\n│🏮 Uᴘᴛɪᴍᴇ\n│🏮 Wᴇᴀᴛʜᴇʀ\n│🏮 Lɪɴᴋ\n│🏮 Cᴘᴜ\n│🏮 Rᴇᴘᴏꜱɪᴛᴏʀʏ\n╰─────────────⦁"
       ).trim();
@@ -569,7 +569,7 @@ smd(
           const quoteText = `\n\n*"${quote.result.body}"*\n_- ${quote.result.author}_`;
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\n 𝑊𝛨𝛪𝛧𝐵𝛩𝑇`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
@@ -591,7 +591,7 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\n𝑊ℎ𝑖𝑧-𝑀𝐷`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
@@ -677,7 +677,7 @@ smd(
         forwardingScore: 999,
         title: "Asta MD Running Since",
         body: message,
-        footerText: "Asta MD 2024",
+        footerText: "whizbot MD 2024",
         isSendNotificationMsg: true,
         mentionedJid: [],
         buttons: button,
@@ -789,7 +789,7 @@ astro_patch.cmd(
       }
       if (!_0x5eb566) {
         return await _0x15cc76.reply(
-          "*Please Give Me Text. Example: _" + prefix + "trt en Who are you_*"
+          "*Please Give Me Text. Example: _" + prefix + "trt en i love whizbot_*"
         );
       }
       var _0x443df8 = await translatte(_0x5eb566, {
