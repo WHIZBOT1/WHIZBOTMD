@@ -21,7 +21,7 @@ async (m) => {
     let text = '';
     text += `*whizbot* ✨\n\n`;
     text += `*fork and give a star 🌟 so you can get more updates* \n\n`;
-    text += `⚙️ *Repo Link: https://github.com/WHIZBOT1/WHIZBOT-MD* \n\n`;
+    text += `⚙️ *Repo Link: https://github.com/WHIZBOT1/WHIZBOTMD* \n\n`;
     text += `*bot is still under maintenance*`;
 
     
