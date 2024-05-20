@@ -26,7 +26,7 @@ async (m) => {
 \n\n`;
 text += `🀄**LICENSE:** You can obtain a copy of the License at [GNU AFFERO GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/), Version 3.0.\n\n`
 
-    text += `🛡️To access additional features and improvements, please visit the WHIZ-BOT repository: [WHIZ-BOT GitHub Repository](https://github.com/WHIZBOT1/WHIZBOT-MD)\n\n`;
+    text += `🛡️To access additional features and improvements, please visit the WHIZ-BOT repository: [WHIZ-BOT GitHub Repository](https://github.com/WHIZBOT1/WHIZBOTMD)\n\n`;
     text += `*bot is still under maintenance*`;
     
     const imageUrl = "https://telegra.ph/file/5fd51597b0270b8cff15b.png";
