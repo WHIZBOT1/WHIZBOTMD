@@ -621,8 +621,6 @@ smd(
 );
 
 
-const botOwner = "wa.me/18763351213"; // Replace with your bot owner's ID
-const botPrefix = ""; // Define your bot prefix here
 
 // Array to store banned user IDs (you can replace this with a database)
 let bannedUsers = [];
