@@ -628,16 +628,16 @@ const botPrefix = ""; // Define your bot prefix here
 let bannedUsers = [];
 
 smd({
-  pattern: botPrefix + "ban",
+  pattern:  "ban",
   desc: "Ban a user from using the bot.",
   category: "admin",
   filename: __filename,
-  use: botPrefix + "ban [user_id]",
+  use: "ban [user_id]",
 },
 async (m) => {
   try {
     // Check if the command is sent by the bot owner
-    if (m.sender === botOwner) {
+    if (!message.isCreator) {
       // Extract the user ID from the command
       const userId = m.command[1];
       
