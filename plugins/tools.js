@@ -19,11 +19,15 @@ async (m) => {
   try {
     // Text to send
     let text = '';
-    text += `*whizbot* ✨\n\n`;
-    text += `*fork and give a star 🌟 so you can get more updates* \n\n`;
-    text += `⚙️ *Repo Link: https://github.com/WHIZBOT1/WHIZBOTMD* \n\n`;
-    text += `*bot is still under maintenance*`;
+    text += `🏮*whizbot*🏮\n\n`;
+    text += `🔖**DESCRIPTION:** WHIZ-BOT is a powerful WhatsApp bot with advanced features and improvements. ✨\n\n`; 
 
+    text += `🏮**STATUS:** WHIZ-BOT is free to use, and no scripts are sold. Be cautious of anyone claiming to sell the script, as they may have fraudulent intentions! BEWARE.
+\n\n`;
+text += `🀄**LICENSE:** You can obtain a copy of the License at [GNU AFFERO GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/), Version 3.0.\n\n`
+
+    text += `🛡️To access additional features and improvements, please visit the WHIZ-BOT repository: [WHIZ-BOT GitHub Repository](https://github.com/WHIZBOT1/WHIZBOT-MD)\n\n`;
+    text += `*bot is still under maintenance*`;
     
     const imageUrl = "https://telegra.ph/file/5fd51597b0270b8cff15b.png";
     
