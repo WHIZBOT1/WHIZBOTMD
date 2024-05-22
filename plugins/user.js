@@ -622,38 +622,109 @@ smd(
 
 
 
-// Array to store banned user IDs (you can replace this with a database)
-let bannedUsers = [];
 
-smd({
+
+
+/* smd ({
   pattern:  "ban",
   desc: "Ban a user from using the bot.",
-  category: "admin",
+  category: "owner",
   filename: __filename,
   use: "ban [user_id]",
+  react: "⚔️",
 },
-async (m) => {
+
+const bannedUsers = new Set(); // Assuming you use a Set to keep track of banned users
+
+async function banUser(userId) {
+  bannedUsers.add(userId);
+}
+
+async (message, match) => {
   try {
-    // Check if the command is sent by the bot owner
-    if (!message.isCreator) {
-      // Extract the user ID from the command
-      const userId = m.command[1];
-      
-      // Check if the user is not already banned
-      if (!bannedUsers.includes(userId)) {
-        // Add the user to the banned users list
-        bannedUsers.push(userId);
-        
-        // Send a confirmation message
-        await m.reply(`User ${userId} has been banned from using the bot.`);
-      } else {
-        await m.reply(`User ${userId} is already banned.`);
-      }
-    } else {
-      await m.reply("Only the bot owner can use this command.");
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    // Handle the error here
+    if (!message.isCreator)
+      return message.reply(`*_Hey buddy, only my owner can ban users!_*`);
+
+    let users = message.mentionedJid
+      ? message.mentionedJid[0]
+      : message.msg?.contextInfo?.participant || false;
+    if (!users) return message.reply("Please provide a user to ban.");
+
+    await banUser(users);
+
+    return await message.bot.sendMessage(
+      message.chat,
+      {
+        text: `User @${
+          users.split("@")[0]
+        } has been banned from using the bot.`,
+        mentions: [users],
+      },
+      { quoted: message }
+    );
+  } catch (e) {
+    message.error(`${e}\n\ncommand: ban`, e);
   }
-});
+}; */
+
+
+
+const bot = {};
+
+smd({
+react: "⚔️",
+category: "owner",
+filename: __filename,
+desc: "ban user from using the bot",
+pattern: "ban",
+use: "-ban to ban user from bot",
+
+},  
+
+
+ 
+async (message,bot) => {
+  try {
+    if (!message.isCreator)
+      return message.reply(`*_Hey buddy, only my owner can ban users!_*`);
+
+    let users = message.mentionedJid
+      ? message.mentionedJid[0]
+      : message.msg?.contextInfo?.participant || false;
+    if (!users) return message.reply("Please provide a user to ban.");
+
+    //  function or method to ban users
+    const bannedUsers = new Set();
+    function banUser(userId) {
+      bannedUsers.add(userId);
+    }
+
+banUser(users);
+
+
+
+ return await message.bot.sendMessage(
+      message.chat,
+      {
+        text: `User @${
+          users.split("@")[0]
+        } has been banned from using the bot.`,
+        mentions: [users],
+      },
+      { quoted: message }
+    );
+  } catch (e) {
+    message.error(`${e}\n\ncommand: ban`, e);
+  }
+}
+
+
+);
+  
+
+
+
+  
+  
+      
+       
