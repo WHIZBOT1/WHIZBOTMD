@@ -459,12 +459,16 @@ if (ty) {
         if (mongoschemas == "false")
           return message.reply("*🚦Economy* is not active in current group.");
         const user = message.sender;
-        //	if(message.chat!=="120363043857093839@g.us") return message.reply('This is not a economy group.')
+        //test
+        
+        if(message.chat!=="120363290585040346@g.us") return message.reply('This is not a economy group, type -support to get casino group' )
         var texts = match.split(" ");
         var opp = texts[1]; // your value
         var value = texts[0].toLowerCase();
         var gg = parseInt(value);
-        ///.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+        ///test
+        
+        mentionedJid[0] ? m.mentionedJid[0] : m.sender
         const balance = await eco.balance(user, "Suhail");
         const g = balance.wallet > parseInt(value);
         const k = 50;
@@ -704,7 +708,7 @@ if (ty) {
         let mongoschemas = zerogroup.economy || "false";
         if (mongoschemas == "false")
           return message.reply("*🚦Economy* is not active in current group.");
-        const kg = 100;
+        const kg = 10000;
         const balance1 = await eco.balance(message.sender, "Suhail");
         if (kg > balance1.wallet)
           return message.reply(
@@ -758,13 +762,13 @@ if (ty) {
           const give2 = await eco.give(message.sender, "Suhail", deduff * 2);
           let st = `🎰 Slot Machine Result\n     ${i}\n\n     ${j}\n\n     ${k}\n\nWow Jackpot🎊.`;
           let str = st
-            .replace(/1/g, `🔴`)
-            .replace(/2/g, `🔵`)
-            .replace(/3/g, `🟣`)
-            .replace(/4/g, `🟢`)
-            .replace(/5/g, `🟡`)
-            .replace(/6/g, `⚪️`)
-            .replace(/7/g, `⚫️`)
+            .replace(/1/g, `🍒`)
+            .replace(/2/g, `🍋`)
+            .replace(/3/g, `🍉`)
+            .replace(/4/g, `🍇`)
+            .replace(/5/g, `🍓`)
+            .replace(/6/g, `🍊`)
+            .replace(/7/g, `🍎`)
             .replace(/:/g, `  `);
 
           return await message.reply(`You got ${deduff * 10} in your wallet.`);
@@ -773,13 +777,13 @@ if (ty) {
           const deduct1 = await eco.deduct(message.sender, "Suhail", deduff);
           let st = `\n🎰 Slot Machine Result\n     ${i}\n\n      ${j}\n\n      ${k}\n\nNot Jacpot📉 but lost `;
           let str = st
-            .replace(/1/g, `🔴`)
-            .replace(/2/g, `🔵`)
-            .replace(/3/g, `🟣`)
-            .replace(/4/g, `🟢`)
-            .replace(/5/g, `🟡`)
-            .replace(/6/g, `⚪️`)
-            .replace(/7/g, `⚫️`)
+            .replace(/1/g, `🍒`)
+            .replace(/2/g, `🍋`)
+            .replace(/3/g, `🍉`)
+            .replace(/4/g, `🍇`)
+            .replace(/5/g, `🍓`)
+            .replace(/6/g, `🍊`)
+            .replace(/7/g, `🍎`)
             .replace(/:/g, `    `);
           return await message.reply(str + ` ${deduff}.`);
         }
