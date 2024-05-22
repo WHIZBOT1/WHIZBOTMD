@@ -619,3 +619,112 @@ smd(
     }
   }
 );
+
+
+
+
+
+
+/* smd ({
+  pattern:  "ban",
+  desc: "Ban a user from using the bot.",
+  category: "owner",
+  filename: __filename,
+  use: "ban [user_id]",
+  react: "⚔️",
+},
+
+const bannedUsers = new Set(); // Assuming you use a Set to keep track of banned users
+
+async function banUser(userId) {
+  bannedUsers.add(userId);
+}
+
+async (message, match) => {
+  try {
+    if (!message.isCreator)
+      return message.reply(`*_Hey buddy, only my owner can ban users!_*`);
+
+    let users = message.mentionedJid
+      ? message.mentionedJid[0]
+      : message.msg?.contextInfo?.participant || false;
+    if (!users) return message.reply("Please provide a user to ban.");
+
+    await banUser(users);
+
+    return await message.bot.sendMessage(
+      message.chat,
+      {
+        text: `User @${
+          users.split("@")[0]
+        } has been banned from using the bot.`,
+        mentions: [users],
+      },
+      { quoted: message }
+    );
+  } catch (e) {
+    message.error(`${e}\n\ncommand: ban`, e);
+  }
+}; */
+
+
+
+const bot = {};
+
+smd({
+react: "⚔️",
+category: "owner",
+filename: __filename,
+desc: "ban user from using the bot",
+pattern: "ban",
+use: "-ban to ban user from bot",
+
+},  
+
+
+ 
+async (message,bot) => {
+  try {
+    if (!message.isCreator)
+      return message.reply(`*_Hey buddy, only my owner can ban users!_*`);
+
+    let users = message.mentionedJid
+      ? message.mentionedJid[0]
+      : message.msg?.contextInfo?.participant || false;
+    if (!users) return message.reply("Please provide a user to ban.");
+
+    //  function or method to ban users
+    const bannedUsers = new Set();
+    function banUser(userId) {
+      bannedUsers.add(userId);
+    }
+
+banUser(users);
+
+
+
+ return await message.bot.sendMessage(
+      message.chat,
+      {
+        text: `User @${
+          users.split("@")[0]
+        } has been banned from using the bot.`,
+        mentions: [users],
+      },
+      { quoted: message }
+    );
+  } catch (e) {
+    message.error(`${e}\n\ncommand: ban`, e);
+  }
+}
+
+
+);
+  
+
+
+
+  
+  
+      
+       
