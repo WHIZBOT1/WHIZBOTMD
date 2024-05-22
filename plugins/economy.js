@@ -461,7 +461,7 @@ if (ty) {
         const user = message.sender;
         //test
         
-        if(message.chat!=="120363290585040346@g.us") return message.reply('This is not a economy group, type -support to get casino group' )
+       // if(message.chat!=="120363290585040346@g.us") return message.reply('This is not a economy group, type -support to get casino group' )
         var texts = match.split(" ");
         var opp = texts[1]; // your value
         var value = texts[0].toLowerCase();
