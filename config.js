@@ -7,7 +7,7 @@ global.port = process.env.PORT;
 global.appUrl = process.env.APP_URL || "";
 global.email = "botsatwork892@gmail.com";
 global.location = "Lahore,Pakistan.";
-global.mongodb = process.env.MONGODB_URI || "mongodb+srv://whizbot:123johniphone@cluster0.nfztvsi.mongodb.net/?retryWrites=true&w=majority";
+global.mongodb = process.env.MONGODB_URI || "mongodb+srv://casinobot:123johniphone@cluster0.nfztvsi.mongodb.net/?retryWrites=true&w=majority";
 global.allowJids = process.env.ALLOW_JID || "null";
 global.blockJids = process.env.BLOCK_JID || "null";
 global.DATABASE_URL = process.env.DATABASE_URL || "";
