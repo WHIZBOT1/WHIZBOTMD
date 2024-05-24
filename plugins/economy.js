@@ -468,7 +468,7 @@ if (ty) {
         var gg = parseInt(value);
         ///test
         
-        mentionedJid[0] ? m.mentionedJid[0] : m.sender
+       /// mentionedJid[0] ? m.mentionedJid[0] : m.sender
         const balance = await eco.balance(user, "Suhail");
         const g = balance.wallet > parseInt(value);
         const k = 50;
