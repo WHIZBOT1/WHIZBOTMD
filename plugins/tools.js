@@ -19,25 +19,26 @@ async (m) => {
   try {
     // Text to send
     let text = '';
-    text += `🏮*whizbot*🏮\n\n`;
-    text += `🔖**DESCRIPTION:** WHIZ-BOT is a powerful WhatsApp bot with advanced features and improvements. ✨\n\n`; 
 
-    text += `🏮**STATUS:** WHIZ-BOT is free to use, and no scripts are sold. Be cautious of anyone claiming to sell the script, as they may have fraudulent intentions! BEWARE.
-\n\n`;
-text += `🀄**LICENSE:** You can obtain a copy of the License at [GNU AFFERO GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/), Version 3.0.\n\n`
+    text += `*🌐 𝗪𝗛𝗜𝗭-𝗕𝗢𝗧 _𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 ♦️*\n\n`;
+    text += `🔮 \`\`\`The main hope of creating this bot is to take full advantage of the WhatsApp app and make its work easier\`\`\`\n\n`;
+    text += `💡 \`\`\`Various things can be downloaded from this bot. Also, managing groups, making logos & edit-images in different ways, searching for different things and getting information and more futures included.\`\`\`\n\n`;
+    text += `⚠️ \`\`\`Also, if your Whatsapp account gets damaged or banned by using this, we are not responsible and you should take responsibility for it.\`\`\`\n\n`;
+    text += `🪀 \`\`\`You can create the bot and see the deploy methods from the website below.\`\`\` 👇\n\n`;
+    text += `🌏 *Website:* \`\`\`https://chat.whatsapp.com/HJlPEPSZ94bFVUpl90UiRo\`\`\`\n\n`;
+    text += `👨‍💻 *Owners:* \`\`\`Unknownkid FT Jflex\`\`\`\n\n`;
+    text += `🎡 *Github:*  \`\`\`https://github.com/WHIZBOT1/WHIZBOTMD\`\`\`\n\n`;
+    text += `🪩 *Our community:* \`\`\`https://chat.whatsapp.com/D4pphf7W3NbCDghqG0SJyz\`\`\`\n\n`;
+    text += `🪄 *Our channel:* \`\`\`https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l\`\`\`\n\n`;
 
-    text += `🛡️To access additional features and improvements, please visit the WHIZ-BOT repository: [WHIZ-BOT GitHub Repository](https://github.com/WHIZBOT1/WHIZBOTMD)\n\n`;
-    text += `*bot is still under maintenance*`;
-    
-    const imageUrl = "https://telegra.ph/file/5fd51597b0270b8cff15b.png";
-    
+    const imageUrl = "https://telegra.ph/file/2f1c2e0cc22214a123719.jpg";
     
     await m.reply(text, { sendImage: true, image: imageUrl });
   } catch (error) {
     console.error("Error:", error);
-    
   }
 });
+    
 smd(
   {
     pattern: "channel",
