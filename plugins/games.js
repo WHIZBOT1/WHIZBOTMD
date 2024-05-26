@@ -1379,3 +1379,34 @@ smd({
     }
   }
 });
+
+smd(
+  {
+    pattern: "rizz",
+    desc: "Get a random pickup line.",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    try {
+      const apiUrl = "https://api.popcat.xyz/pickuplines";
+      const response = await fetch(apiUrl);
+
+      if (!response.ok) {
+        return await m.send(
+          `*_Error: ${response.status} ${response.statusText}_*`
+        );
+      }
+
+      const data = await response.json();
+      const { pickupline, contributor } = data;
+
+      const message = `*Pickup Line:* ${pickupline}`;
+
+      await m.send(message);
+    } catch (e) {
+      await m.error(`${e}\n\ncommand: rizz`, e);
+    }
+  }
+);
+
