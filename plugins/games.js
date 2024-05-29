@@ -1443,3 +1443,25 @@ smd({
     await message.send('_Failed to fetch message._', { quoted: message.data });
   }
 });
+
+cmd({
+  pattern: "pick",
+  desc: "Picks a random user from the group",
+  category: "group",
+  filename: __filename
+}, async (ctx, userType) => {
+  try {
+    if (!ctx.isGroup) return ctx.reply(tlang().group);
+    if (!userType) return ctx.reply("*Which type of user do you want?*");
+    let participants = ctx.metadata.participants.map(user => user.id);
+    let randomUser = participants[Math.floor(Math.random() * participants.length)];
+    ctx.bot.sendMessage(ctx.jid, {
+      text: "The most " + userType + " around us is *@" + randomUser.split("@")[0] + "*",
+      mentions: [randomUser]
+    }, {
+      quoted: ctx
+    });
+  } catch (error) {
+    await ctx.error(error + "\n\ncommand : pick", error);
+  }
+});
