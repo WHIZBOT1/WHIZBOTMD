@@ -6,7 +6,7 @@
   </a>
 </p>
 <p align="center">
-<a href="https://github.com/WHIZBOT1"><img title="Author" src="https://img.shields.io/badge/GURU-BOT-black?style=for-the-badge&logo=telegram"></a>
+<a href="https://github.com/WHIZBOT1"><img title="Author" src="https://img.shields.io/badge/WHIZ-BOT-black?style=for-the-badge&logo=telegram"></a>
 <p/>
 <p align="center">
 <a href="https://github.com/WHIZBOT1?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/Guru322?label=Followers&style=social"></a>
