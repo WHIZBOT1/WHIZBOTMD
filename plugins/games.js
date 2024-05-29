@@ -1410,3 +1410,19 @@ smd(
   }
 );
 
+smd({
+  pattern: 'insult',
+  fromMe: false,
+  desc: 'Get insulted',
+  type: 'fun'
+}, async (message, match) => {
+  try {
+    const response = await axios.get('https://api.maher-zubair.tech/misc/insult');
+    const insult = response.data.result;
+
+    await message.send(insult, { quoted: message.data });
+  } catch (error) {
+    console.error('Error fetching insult:', error);
+    await message.send('_Failed to fetch insult._', { quoted: message.data });
+  }
+});
