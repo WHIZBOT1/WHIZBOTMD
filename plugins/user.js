@@ -668,3 +668,68 @@ async function unbanUser(userId) {
   return false; // User is not currently banned
 }
 
+smd({
+  pattern: "ban",
+  desc: "Bans a user from using any bot command",
+  category: "admin",
+  use: "<user-id>",
+}, async (message, match) => {
+  const userId = match[1];
+  const userJid = message.sender;
+  const userName = message.senderName;
+  const success = await banUser(userId, userJid, userName);
+  if (success) {
+    await message.reply(`User ${userId} (${userName}) has been banned.`);
+  } else {
+    await message.reply(`User ${userId} (${userName}) is already banned.`);
+  }
+});
+
+smd({
+  pattern: "unban",
+  desc: "Unbans a user from using any bot command",
+  category: "admin",
+  use: "<user-id>",
+}, async (message, match) => {
+  const userId = match[1];
+  const success = await unbanUser(userId);
+  if (success) {
+    await message.reply(`User ${userId} has been unbanned.`);
+  } else {
+    await message.reply(`User ${userId} is not currently banned.`);
+  }
+});
+
+smd({
+  pattern: "checkban",
+  desc: "Shows all the banned users",
+  category: "admin",
+  filename: __filename,
+  isAdminCommand: true
+}, async (message) => {
+  const bannedUsers = loadBannedUsers();
+  if (bannedUsers.bannedUsers.length === 0) {
+    await message.reply("There are no banned users.");
+  } else {
+    let reply = "Banned Users:\n";
+    bannedUsers.bannedUsers.forEach(user => {
+      reply += `- ${user.userId} (${user.userName})\n`;
+    });
+    await message.reply(reply);
+  }
+});
+
+smd({
+  pattern: "clearban",
+  desc: "Unbans all the banned users",
+  category: "admin",
+  filename: __filename,
+  isAdminCommand: true
+}, async (message) => {
+  const bannedUsers = { bannedUsers: [] };
+  saveBannedUsers(bannedUsers);
+  await message.reply("All banned users have been unbanned.");
+});
+
+
+
