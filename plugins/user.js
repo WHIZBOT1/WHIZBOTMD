@@ -624,107 +624,47 @@ smd(
 
 
 
+const fs = require('fs');
 
-/* smd ({
-  pattern:  "ban",
-  desc: "Ban a user from using the bot.",
-  category: "owner",
-  filename: __filename,
-  use: "ban [user_id]",
-  react: "⚔️",
-},
-
-const bannedUsers = new Set(); // Assuming you use a Set to keep track of banned users
-
-async function banUser(userId) {
-  bannedUsers.add(userId);
-}
-
-async (message, match) => {
+// Function to load banned users from ban.json
+function loadBannedUsers() {
   try {
-    if (!message.isCreator)
-      return message.reply(`*_Hey buddy, only my owner can ban users!_*`);
-
-    let users = message.mentionedJid
-      ? message.mentionedJid[0]
-      : message.msg?.contextInfo?.participant || false;
-    if (!users) return message.reply("Please provide a user to ban.");
-
-    await banUser(users);
-
-    return await message.bot.sendMessage(
-      message.chat,
-      {
-        text: `User @${
-          users.split("@")[0]
-        } has been banned from using the bot.`,
-        mentions: [users],
-      },
-      { quoted: message }
-    );
-  } catch (e) {
-    message.error(`${e}\n\ncommand: ban`, e);
-  }
-}; */
-
-
-
-const bot = {};
-
-smd({
-react: "⚔️",
-category: "owner",
-filename: __filename,
-desc: "ban user from using the bot",
-pattern: "ban",
-use: "-ban to ban user from bot",
-
-},  
-
-
- 
-async (message,bot) => {
-  try {
-    if (!message.isCreator)
-      return message.reply(`*_Hey buddy, only my owner can ban users!_*`);
-
-    let users = message.mentionedJid
-      ? message.mentionedJid[0]
-      : message.msg?.contextInfo?.participant || false;
-    if (!users) return message.reply("Please provide a user to ban.");
-
-    //  function or method to ban users
-    const bannedUsers = new Set();
-    function banUser(userId) {
-      bannedUsers.add(userId);
-    }
-
-banUser(users);
-
-
-
- return await message.bot.sendMessage(
-      message.chat,
-      {
-        text: `User @${
-          users.split("@")[0]
-        } has been banned from using the bot.`,
-        mentions: [users],
-      },
-      { quoted: message }
-    );
-  } catch (e) {
-    message.error(`${e}\n\ncommand: ban`, e);
+    const data = fs.readFileSync('ban.json');
+    return JSON.parse(data);
+  } catch (error) {
+    return { bannedUsers: [] };
   }
 }
 
+// Function to save banned users to ban.json
+function saveBannedUsers(bannedUsers) {
+  try {
+    fs.writeFileSync('ban.json', JSON.stringify(bannedUsers, null, 2));
+  } catch (error) {
+    console.error('Error saving banned users:', error);
+  }
+}
 
-);
-  
+// Function to ban a user
+async function banUser(userId, userJid, userName) {
+  const bannedUsers = loadBannedUsers();
+  if (!bannedUsers.bannedUsers.some(user => user.userId === userId)) {
+    bannedUsers.bannedUsers.push({ userId, userJid, userName });
+    saveBannedUsers(bannedUsers);
+    return true;
+  }
+  return false; // User is already banned
+}
 
+// Function to unban a user
+async function unbanUser(userId) {
+  const bannedUsers = loadBannedUsers();
+  const index = bannedUsers.bannedUsers.findIndex(user => user.userId === userId);
+  if (index !== -1) {
+    bannedUsers.bannedUsers.splice(index, 1);
+    saveBannedUsers(bannedUsers);
+    return true;
+  }
+  return false; // User is not currently banned
+}
 
-
-  
-  
-      
-       
