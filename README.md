@@ -47,64 +47,9 @@ WHIZBOT-MD Simple Multi Device whatsapp bot.
 
 2. Now Deploy.(No Ban)
    <br>
- <div align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/WHIZBOT1/WHIZBOTMD">
-    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku">
-  </a>
-</div>
+<a href="https://heroku.com/deploy?template=https://github.com/WHIZBOT1/WHIZBOTMD"><img title="WHIZBOT-MD Deploy Heroku" src="https://img.shields.io/badge/DEPLOY HEROKU-h?color=black&style=for-the-badge&logo=heroku"></a> 
+ <a href="https://railway.app/project/"><img title="INRL-MD Deploy Railway" src="https://img.shields.io/badge/DEPLOY RAILWAY-h?color=black&style=for-the-badge&logo=Railway"></a>  <a href="https://app.koyeb.com/apps/deploy?type=git&repository=github.com/Astropeda/Asta-Md&branch=main&env[SESSION_ID]&env[OWNER_NUMBER]=18763351213&env[MONGODB_URI]&&env[OWNER_NAME]=Asta&env[KOYEB_API]&env[PREFIX]=.&env[WAPRESENCE]&env[AUTO_READ_STATUS]=false&env[DISABLE_PM]=false&env[PACK_AUTHER]=whatsapp+bot&env[PACK_NAME]=Asta+MD&env[STYLE]=0&env[MODE]=private&env[READ_MESSAGE]=false&env[THEME]=Whatsappbot&env[WARN_COUNT]=3&env[BLOCK_JID]=null&env[TIME_ZONE]=Africa/Lagos&name=asta-md&env[KOYEB_NAME]=asta-md&env[SUDO]=null&env[THUMB_IMAGE]=https://imgur.com/dMwGOUP.jpg"><img title="ASTA-MD Deploy Koyeb" src="https://img.shields.io/badge/DEPLOY KOYEB-h?color=black&style=for-the-badge&logo=koyeb"></a>  <a href="https://replit.com/github/Astropeda/Asta-Md"><img title="INRL-MD Deploy Replit" src="https://img.shields.io/badge/DEPLOY REPLIT-h?color=black&style=for-the-badge&logo=Replit"></a>  <a href="https://github.com/codespaces/new?skip_quickstart=true&machine=standardLinux32gb&repo=763349202&ref=main&geo=UsWest"><img title="WHIZBOT-MD Deploy Codespaces" src="https://img.shields.io/badge/DEPLOY CODESPACES-h?color=black&style=for-the-badge&logo=github"></a>  <a href="https://glitch.com/"><img title="WHIZBOT-MD Deploy Glitch" src="https://img.shields.io/badge/DEPLOY GLITCH-h?color=black&style=for-the-badge&logo=glitch"></a>
 
-#### DEPLOY TO KOYEB
-
-1. if you don't have a koyeb account. Create an account.
-   <br>
-   <p align="center"><a href="https://app.koyeb.com/auth/signup"> <img src="https://img.shields.io/badge/Koyeb account-blue?style=for-the-badge&logo=koyeb" width="220" height="38.45"/></a></p>
-
-2. Now deploy
-   <br>
-  <p align="center"><a href="https://guru-bot-deploy.vercel.app"> <img src="https://www.koyeb.com/static/images/deploy/button.svg" width="380" height="38.45"/></a></p>
-
-
-
-
-#### DEPLOY TO RAILWAY(idk if this still works)
-
-1. If You don't have an account On Railway. Create a account.
-    <br>
-<p align="center"><a href="https://railway.app"> <img src="https://img.shields.io/badge/RailWay%20Account-blue?style=for-the-badge&logo=Railway" width="220" height="38.45"/></a></p>
-
- - Fork and star this repo.
-- Now head towards https://railway.app/new, select Deploy from repo.
-- Now select the forked repository, select branch.
-- Now go to <b>Variables</b> and add variable listed below.
-   - DATABASE_URL, SESSION_ID, REMOVEBG_KEY, PREFIX
-- Go to <b>Deployments</b> and wait for deplyment to complete.
-- and you're good to go.
-  
-2. TUTORIAL (Huh if i get free time)
-#### DEPLOY TO OKTETO ( okteto ending it's free tier on January 15, 2024)
-
-1. If You don't have an account On Okteto. Create a account.
-    <br>
-<p align="center"><a href="https://www.okteto.com/pricing/?plan=SaaS"> <img src="https://img.shields.io/badge/Okteto%20Account-blue?style=for-the-badge&logo=okteto" width="220" height="38.45"/></a></p>
-
- - Fork and star this repo.
-- Now head towards Lunch Dev Environment
-- Now select the forked GURU BOT repository.
-- Now go to <b>Variables</b> and add variable listed below.
-   - DATABASE_URL, SESSION_ID, REMOVEBG_KEY, PREFIX
-- Then Click Lunch and wait for deplyment to complete.
-- and you're good to go.
-
-2. TUTORIAL (Never)
-#### DEPLOY TO Replit (This shit also Going paid)
-
-1. If You don't have an account in Replit. Create an account.
-    <br>
-<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Account-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
-
-2. Now Deploy
-    <br>
-<p align="center"><a href="https://repl.it/github/Guru322/GURU-BOT"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
  
  ## 🤩 Support
