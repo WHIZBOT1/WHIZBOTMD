@@ -1426,3 +1426,20 @@ smd({
     await message.send('_Failed to fetch insult._', { quoted: message.data });
   }
 });
+
+smd({
+  pattern: 'lines',
+  fromMe: false,
+  desc: 'Get a nice message',
+  type: 'fun'
+}, async (message, match) => {
+  try {
+    const response = await axios.get('https://api.maher-zubair.tech/misc/lines');
+    const messageText = response.data.result;
+
+    await message.send(messageText, { quoted: message.data });
+  } catch (error) {
+    console.error('Error fetching message:', error);
+    await message.send('_Failed to fetch message._', { quoted: message.data });
+  }
+});
