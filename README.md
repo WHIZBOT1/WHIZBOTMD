@@ -1,7 +1,7 @@
 <p align="center">  
   <a href="https://youtu.be/-rvKNgGwNaA?si=KuLRTF1IsiiSPsGZ">
     <img alt="WHIZBOT" height="300" src="https://telegra.ph/file/ca48f754c88ec141d4d42.jpg">
-    <h1 align="center">WHIZBOTBOT-PATCH 2.O.O</h1>
+    <h1 align="center">WHIZBOT-PATCH 2.O.O</h1>
   </a>
 </p>
 <p align="center">
