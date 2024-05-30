@@ -1,7 +1,7 @@
 <p align="center">  
   <a href="https://youtu.be/-rvKNgGwNaA?si=KuLRTF1IsiiSPsGZ">
     <img alt="WHIZBOT" height="300" src="https://telegra.ph/file/ca48f754c88ec141d4d42.jpg">
-    <h1 align="center">WHIZBOTBOT-PATCCH 2.O.O</h1>
+    <h1 align="center">WHIZBOTBOT-PATCH 2.O.O</h1>
   </a>
 </p>
 <p align="center">
@@ -65,7 +65,8 @@ WHIZBOT-MD Simple Multi Device whatsapp bot.
 
 ## 🤩 Support
 
-SUPPORT GROUP: <a href="https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l"><img alt="WhatsApp" src="https://camo.githubusercontent.com/2157131829ac512183ee8f8b6c6f803688a4cc66a2e686602844e80478401a7c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6f696e2047726f75702d3235443336363f7374796c653d666f722d7468652d6261646765266c6f676f3d7768617473617070266c6f676f436f6c6f723d7768697465"/></a>
+##### Get Latest Info
+[Channel](https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l)
 
 - Star ⭐ the repo if you like WHIZBOT.
 
