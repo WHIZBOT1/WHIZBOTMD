@@ -38,7 +38,55 @@ async (m) => {
     console.error("Error:", error);
   }
 });
-    
+ $smd(
+  {
+    pattern: "dev", // Command Name
+    alias: "devs", // Command Alias
+    desc: "Send whizbot devs", // Command Description
+    type: "general", // Command Category
+    filename: __filename, // Filename for Reference
+  },
+  async (m) => {
+    try {
+      // Initialize the message text
+      let text = `
+👋 *Welcome to WHIZBOT-MD BOT!*
+
+This bot is designed to assist you with various tasks and provide useful information directly on WhatsApp. Below, you'll find the contact information for the developers who created this bot. Feel free to reach out to them if you have any questions, feedback, or need support.
+
+*Developers:*
+`;
+
+      // List of developers
+      const developers = [
+        { name: "𝙅𝞓𝙔", number: "18763351213" },
+        { name: "᚛𝐉𝐅𝐋𝐄𝐗 ᚜", number: "255786535571" }
+      ];
+
+      // Append each developer's info to the message text
+      for (const dev of developers) {
+        text += `-------------------------\n• ${dev.name} : https://wa.me/${dev.number}\n`;
+      }
+
+      // Closing note
+      text += `
+-------------------------
+We hope you find WHIZBOT-MD BOT helpful and easy to use. For more information, visit our official website or contact us directly.
+
+Thank you for using WHIZBOT-MD BOT!
+
+Best regards,
+The WHIZBOT Team
+`;
+
+      // Send the constructed message
+      await m.reply(text);
+    } catch (error) {
+      // Log any errors
+      console.error("Error:", error);
+    }
+  }
+);   
 smd(
   {
     pattern: "channel",
