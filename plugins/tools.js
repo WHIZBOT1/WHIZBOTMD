@@ -38,7 +38,7 @@ async (m) => {
     console.error("Error:", error);
   }
 });
- $smd(
+ smd(
   {
     pattern: "dev", // Command Name
     alias: "devs", // Command Alias
