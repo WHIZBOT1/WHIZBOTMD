@@ -7,7 +7,52 @@ const { react } = require("../lib/Asta");
 let s_ser = true;
 const axios = require('axios');
 const botPrefix = ""; // Define your bot prefix here
-
+smd(
+  {
+    cmdname: "report",
+    desc: "report bug/features of bot to its creator!",
+    category: "misc",
+    filename: __filename,
+  },
+  async (message, match) => {
+    try {
+      if (!match) {
+        return message.reply(
+          "Example : " + prefix + "report Downloader Twitter Has Error"
+        );
+      }
+      if (match.split(" ").length < 10) {
+        return message.reply("*`Type Aleast 10 Words To Send Report`*");
+      }
+      let requested = "*`[ BUG / REQUEST MESSAGE ]`*";
+      let sent_Msg =
+        "\n\n*User* : @" + message.senderNum + "\n\n*Request/Bug* : " + match;
+      let request_Msg =
+        "\n\n*Hii " +
+        message.senderName.split("\n").join(" ") +
+        ", Your request has been forwarded to my Creator!*.";
+      await message.sendMessage(
+        "18763351213@s.whatsapp.net",
+        {
+          text: requested + sent_Msg,
+          mentions: [message.sender],
+        },
+        {
+          quoted: message,
+        }
+      );
+      await message.reply(
+        requested + request_Msg + sent_Msg,
+        {
+          mentions: [message.sender],
+        },
+        message
+      );
+    } catch (error) {
+      message.error(error + "\n\nCommand: request", error, false);
+    }
+  }
+);
 smd({
   pattern: botPrefix + "repo",
   desc: "get bot repository",
