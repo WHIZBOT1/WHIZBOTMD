@@ -1449,7 +1449,7 @@ smd(
     category: "fun",
     filename: __filename,
   },
-  async (m) => {
+  async (message,match) => {
     try {
       const apiUrl = "https://api.popcat.xyz/pickuplines";
       const response = await fetch(apiUrl);
