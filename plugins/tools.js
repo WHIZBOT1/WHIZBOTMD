@@ -91,7 +91,7 @@ async (m) => {
     type: "general", // Command Category
     filename: __filename, // Filename for Reference
   },
-  async (m) => {
+  async (message, match) => {
     try {
       // Initialize the message text
       let text = `
