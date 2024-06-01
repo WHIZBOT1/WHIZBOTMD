@@ -1409,68 +1409,6 @@ smd({
     }
   }
 });
-const axios = require('axios');
-
-smd({
-  pattern: 'riddle',
-  fromMe: false,
-  desc: 'Play the riddle game',
-  type: 'games'
-}, async (message, match) => {
-  try {
-    // Fetching riddle from the API
-    const response = await axios.get('https://riddles-api.vercel.app/random');
-    const riddleData = response.data;
-
-    const riddle = riddleData.question;
-    const answer = riddleData.answer.toLowerCase(); // Convert answer to lowercase for case-insensitive comparison
-
-    // Send the riddle to the user
-    await message.send(`🤔 Here's a riddle for you:\n\n${riddle}`);
-
-    // Wait for the user's response
-    const userResponse = await message.receive();
-
-    // Check if the user's response matches the answer
-    if (userResponse.message.toLowerCase().trim() === answer) {
-      await message.send('🎉 Congratulations! You solved the riddle!');
-    } else {
-      await message.send('Oops! That\'s not the correct answer. Better luck next time!');
-    }
-  } catch (error) {
-    console.error('Error fetching riddle:', error);
-    await message.send('_Failed to fetch riddle._', { quoted: message.data });
-  }
-});
-smd(
-  {
-    pattern: "rizz",
-    desc: "Get a random pickup line.",
-    category: "fun",
-    filename: __filename,
-  },
-  async (message,match) => {
-    try {
-      const apiUrl = "https://api.popcat.xyz/pickuplines";
-      const response = await fetch(apiUrl);
-
-      if (!response.ok) {
-        return await m.send(
-          `*_Error: ${response.status} ${response.statusText}_*`
-        );
-      }
-
-      const data = await response.json();
-      const { pickupline, contributor } = data;
-
-      const message = `*Pickup Line:* ${pickupline}`;
-
-      await m.send(message);
-    } catch (e) {
-      await m.error(`${e}\n\ncommand: rizz`, e);
-    }
-  }
-);
 
 smd({
   pattern: 'insult',
