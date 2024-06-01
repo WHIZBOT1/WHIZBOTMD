@@ -9,7 +9,37 @@ const {
   Config
 } = require("../lib/");
 const axios = require('axios');
+smd({
+  pattern: 'truth',
+  fromMe: false,
+  desc: 'Get a truth question',
+  type: 'games'
+}, async (message, match) => {
+  try {
+    // Log the start of the game
+    console.log('Fetching truth prompt from the API...');
+    
+    // Fetching truth prompt from the API
+    const promptResponse = await axios.get('https://api.truthordarebot.xyz/truth');
+    const promptData = promptResponse.data;
 
+    if (!promptData || promptResponse.status !== 200) {
+      return await message.reply("*Failed to fetch a truth question.*");
+    }
+
+    const prompt = promptData.question;
+
+    // Send the truth question to the user
+    await message.send(`🤔 Truth Question:\n\n${prompt}`);
+  } catch (error) {
+    // Log the error details for debugging
+    console.error('Error fetching truth prompt:', error.message);
+    console.error('Error details:', error);
+
+    // Send a failure message to the user
+    await message.send('_Failed to fetch truth question._', { quoted: message.data });
+  }
+});
 smd(
   {
     pattern: "guessage",
