@@ -49,38 +49,6 @@ smd({
   }
 });
 
-  smd({
-  pattern: 'riddle',
-  fromMe: false,
-  desc: 'Play the riddle game',
-  type: 'games'
-}, async (message, match) => {
-  try {
-    const response = await axios.get('https://jokes.one/api/jod');
-    const riddleData = response.data.contents.jokes[0];
-
-    const riddle = riddleData.joke.text;
-    const answer = riddleData.answer.text;
-
-    const buttons = [
-      { buttonId: 'correct', buttonText: 'Correct', type: 1 },
-      { buttonId: 'wrong', buttonText: 'Wrong', type: 1 }
-    ];
-
-    await message.sendButtons(`🤔 Here's a riddle for you:\n\n${riddle}`, buttons);
-
-    const userResponse = await message.waitForButtonResponse();
-
-    if (userResponse.buttonId === 'correct') {
-      await message.send(`🎉 Congratulations! The answer is: ${answer}`);
-    } else {
-      await message.send('Oops! That\'s not the correct answer. Better luck next time!');
-    }
-  } catch (error) {
-    console.error('Error fetching riddle:', error);
-    await message.send('_Failed to fetch riddle._', { quoted: message.data });
-  }
-});
 
 
 
