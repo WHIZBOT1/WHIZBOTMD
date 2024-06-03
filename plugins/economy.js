@@ -266,30 +266,46 @@ if (ty) {
     }
   );
   smd(
-    {
-      pattern: "wallet",
-      desc: "shows wallet.",
-      category: "economy",
-      filename: __filename,
-      react: "💷",
-    },
-    async (message) => {
-      try {
-        let zerogroup =
-          (await sck.findOne({ id: message.chat })) ||
-          (await sck.new({ id: message.chat }));
-        let mongoschemas = zerogroup.economy || "false";
-        if (mongoschemas == "false")
-          return message.reply("*🚦Economy* is not active in current group.");
-        const balance = await eco.balance(message.sender, "Suhail");
-        return await message.reply(
-          `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_`
-        );
-      } catch (e) {
-        message.error(`${e}\n\ncommand: wallet`, e);
-      }
+  {
+    pattern: "wallet",
+    desc: "shows wallet.",
+    category: "economy",
+    filename: __filename,
+    react: "💷",
+  },
+  async (message) => {
+    try {
+      let zerogroup =
+        (await sck.findOne({ id: message.chat })) ||
+        (await sck.new({ id: message.chat }));
+      let mongoschemas = zerogroup.economy || "false";
+      if (mongoschemas == "false")
+        return message.reply("*🚦Economy* is not active in current group.");
+      const balance = await eco.balance(message.sender, "Suhail");
+
+      // Compose the text part of the message
+      const replyText = `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_\n\nJoin our WhatsApp Channel for updates and more!`;
+
+      // Define contextInfo metadata
+      const contextInfo = {
+        externalAdReply: {
+          title: "WHIZBOT-MD",
+          body: "Join our WhatsApp Channel for updates and more!",
+          previewType: "ANY",
+          thumbnailUrl: "https://telegra.ph/file/1bd9f1e030bca9ea286a3.jpg",
+          mediaType: 1,
+          mediaUrl: "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l",
+          sourceUrl: "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l"
+        }
+      };
+
+      // Send the text part of the message with contextInfo
+      return await message.reply(replyText, { contextInfo });
+    } catch (e) {
+      message.error(`${e}\n\ncommand: wallet`, e);
     }
-  );
+  }
+);
 
   //---------------------------------------------------------------------------
   smd(
