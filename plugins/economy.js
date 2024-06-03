@@ -284,7 +284,7 @@ if (ty) {
       const balance = await eco.balance(message.sender, "Suhail");
 
       // Compose the text part of the message
-      const replyText = `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_\n\nJoin our WhatsApp Channel for updates and more!`;
+      const replyText = `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_\n\n🚀Join our WhatsApp Channel for updates and more!🚀`;
 
       // Define contextInfo metadata
       const contextInfo = {
