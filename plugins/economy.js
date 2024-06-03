@@ -321,7 +321,7 @@ if (ty) {
       const ownerNumber = "18763351213@s.whatsapp.net"; // Your WhatsApp number in the format used by WhatsApp
 
       if (message.sender !== ownerNumber) {
-        return message.reply(`*_Hey buddy, only my owner can give money!_*`);
+        return message.reply(`*_Hey buddy, only my owner jay can give money!_*`);
       }
 
       let users = message.mentionedJid
