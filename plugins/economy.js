@@ -309,38 +309,43 @@ if (ty) {
 
   //---------------------------------------------------------------------------
   smd(
-    {
-      pattern: "give",
-      desc: "Add money in wallet.",
-      category: "economy",
-      filename: __filename,
-      react: "💷",
-    },
-    async (message, match) => {
-      try {
-        if (!message.isCreator)
-          return message.reply(`*_Hey buddy, only my owner can give money!_*`);
-        let users = message.mentionedJid
-          ? message.mentionedJid[0]
-          : message.msg?.contextInfo?.participant || false;
-        if (!users) return message.reply("Please give me user to add money.");
-        await eco.give(users, "Suhail", parseInt(match.split(" ")[0]));
-        return await message.bot.sendMessage(
-          message.chat,
-          {
-            text: `Added 📈 ${parseInt(match.split(" ")[0])} to @${
-              users.split("@")[0]
-            } wallet🛸.`,
-            mentions: [users],
-          },
-          { quoted: message }
-        );
-      } catch (e) {
-        message.error(`${e}\n\ncommand: give`, e);
+  {
+    pattern: "give",
+    desc: "Add money in wallet.",
+    category: "economy",
+    filename: __filename,
+    react: "💷",
+  },
+  async (message, match) => {
+    try {
+      const ownerNumber = "18763351213@s.whatsapp.net"; // Your WhatsApp number in the format used by WhatsApp
+
+      if (message.sender !== ownerNumber) {
+        return message.reply(`*_Hey buddy, only my owner can give money!_*`);
       }
+
+      let users = message.mentionedJid
+        ? message.mentionedJid[0]
+        : message.msg?.contextInfo?.participant || false;
+
+      if (!users) return message.reply("Please give me user to add money.");
+
+      await eco.give(users, "Suhail", parseInt(match.split(" ")[0]));
+      return await message.bot.sendMessage(
+        message.chat,
+        {
+          text: `Added 📈 ${parseInt(match.split(" ")[0])} to @${
+            users.split("@")[0]
+          } wallet🛸.`,
+          mentions: [users],
+        },
+        { quoted: message }
+      );
+    } catch (e) {
+      message.error(`${e}\n\ncommand: give`, e);
     }
-  );
-  
+  }
+);
 smd(
   {
     pattern: "bank",
