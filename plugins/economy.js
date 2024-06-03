@@ -324,32 +324,61 @@ if (ty) {
       }
     }
   );
-  smd(
-    {
-      pattern: "bank",
-      desc: "shows bank amount.",
-      category: "economy",
-      filename: __filename,
-      react: "💷",
-    },
-    async (message) => {
-      try {
-        let zerogroup =
-          (await sck.findOne({ id: message.chat })) ||
-          (await sck.new({ id: message.chat }));
-        let mongoschemas = zerogroup.economy || "false";
-        if (mongoschemas == "false")
-          return message.reply("*🚦Economy* is not active in current group.");
-        const balance = await eco.balance(message.sender, "Suhail");
-        return await message.reply(
-          `🍀User: ${message.pushName}\n\n_🪙${balance.bank}/${balance.bankCapacity}_`
-        );
-      } catch (e) {
-        message.error(`${e}\n\ncommand: bank`, e);
-      }
-    }
-  );
+  
+smd(
+  {
+    pattern: "bank",
+    desc: "shows bank amount.",
+    category: "economy",
+    filename: __filename,
+    react: "💷",
+  },
+  async (message) => {
+    try {
+      let zerogroup =
+        (await sck.findOne({ id: message.chat })) ||
+        (await sck.new({ id: message.chat }));
+      let mongoschemas = zerogroup.economy || "false";
+      if (mongoschemas == "false")
+        return message.reply("*🚦Economy* is not active in current group.");
 
+      const balance = await eco.balance(message.sender, "Suhail");
+
+      // Compose the text part of the message
+      const replyText = `🍀User: ${message.pushName}\n\n_🪙${balance.bank}/${balance.bankCapacity}_\n\n🚀 Join our WhatsApp Channel for updates and more! 🚀`;
+
+      // Define the URL and metadata for the link preview
+      const channelLink = "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l";
+      const metadata = {
+        url: channelLink,
+        title: "WHIZBOT-MD",
+        description: "Join our WhatsApp Channel for updates and more!",
+        image: "https://telegra.ph/file/baf50c12b0e6622bc42cf.jpg" // Replace with your image URL
+      };
+
+      // Define contextInfo metadata
+      const contextInfo = {
+        externalAdReply: {
+          title: metadata.title,
+          body: metadata.description,
+          previewType: "ANY",
+          thumbnailUrl: metadata.image,
+          mediaType: 1,
+          mediaUrl: metadata.url,
+          sourceUrl: metadata.url
+        }
+      };
+
+      // Send the text part of the message with contextInfo
+      await message.reply(replyText, { contextInfo });
+
+      // Send the link preview as a separate message
+      return await message.reply(metadata);
+    } catch (e) {
+      message.error(`${e}\n\ncommand: bank`, e);
+    }
+  }
+);
   //---------------------------------------------------------------------------
   smd(
     {
