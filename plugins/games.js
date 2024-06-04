@@ -1478,5 +1478,33 @@ cmd({
   }
 });
 
+smd(
+  {
+    pattern: "fact",
+    desc: "Get a random  fact.",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    try {
+      const apiUrl = "https://nekos.life/api/v2/fact";
+      const response = await fetch(apiUrl);
 
+      if (!response.ok) {
+        return await m.send(
+          `*_Error: ${response.status} ${response.statusText}_*`
+        );
+      }
+
+      const data = await response.json();
+      const {fact, contributor } = data;
+
+      const message = `*fact:* ${fact}`;
+
+      await m.send(message);
+    } catch (e) {
+      await m.error(`${e}\n\ncommand: fact`, e);
+    }
+  }
+);
 
