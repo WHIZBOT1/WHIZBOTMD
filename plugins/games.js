@@ -19,7 +19,49 @@ const {
 const axios = require('axios');
 
 
+$const { dare, truth, random_question } = require('../lib/truth-dare.js');
+const axios = require('axios');
+const { fetchJson, smd, tlang, sleep } = require('../lib');
+const fetch = require('node-fetch');
 
+// Random Question Command
+smd(
+  {
+    pattern: "question",
+    desc: "Random Question.",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    m.reply(`${random_question()}`);
+  }
+);
+
+// Truth Command
+smd(
+  {
+    pattern: "truth",
+    desc: "truth and dare (truth game).",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    m.reply(`*𝚃𝚁𝚄𝚃𝙷:* ${truth()}`);
+  }
+);
+
+// Dare Command
+smd(
+  {
+    pattern: "dare",
+    desc: "truth and dare (dare game).",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    m.reply(`*𝙳𝙰𝚁𝙴:* ${dare()}`);
+  }
+);
 smd(
   {
     pattern: "guessage",
