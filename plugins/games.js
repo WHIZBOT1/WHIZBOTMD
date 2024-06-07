@@ -19,7 +19,7 @@ const {
 const axios = require('axios');
 
 
-$const { dare, truth, random_question } = require('../lib/truth-dare.js');
+const { dare, truth, random_question } = require('../lib/truth-dare.js');
 const axios = require('axios');
 const { fetchJson, smd, tlang, sleep } = require('../lib');
 const fetch = require('node-fetch');
