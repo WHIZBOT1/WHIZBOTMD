@@ -633,8 +633,7 @@ smd(
 
 
 
-const eco = require("discord-mongoose-economy");
-const { cmd } = require("../lib/plugins");
+
 
 // Characteristics, Hobbies, and Traits arrays with emojis
 const sifat = [
