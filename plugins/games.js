@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 const {
   cmd
 } = require("../lib/plugins");
@@ -10,6 +18,49 @@ const {
 } = require("../lib/");
 const axios = require('axios');
 
+
+const { dare, truth, random_question } = require('../lib/truth-dare.js');
+const { fetchJson, tlang, sleep } = require('../lib/');
+const fetch = require('node-fetch');
+
+// Random Question Command
+smd(
+  {
+    pattern: "question",
+    desc: "Random Question.",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    m.reply(`${random_question()}`);
+  }
+);
+
+// Truth Command
+smd(
+  {
+    pattern: "truth",
+    desc: "truth and dare (truth game).",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    m.reply(`*𝚃𝚁𝚄𝚃𝙷:* ${truth()}`);
+  }
+);
+
+// Dare Command
+smd(
+  {
+    pattern: "dare",
+    desc: "truth and dare (dare game).",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    m.reply(`*𝙳𝙰𝚁𝙴:* ${dare()}`);
+  }
+);
 smd(
   {
     pattern: "guessage",
@@ -1379,3 +1430,90 @@ smd({
     }
   }
 });
+
+smd({
+  pattern: 'insult',
+  fromMe: false,
+  desc: 'Get insulted',
+  type: 'fun'
+}, async (message, match) => {
+  try {
+    const response = await axios.get('https://api.maher-zubair.tech/misc/insult');
+    const insult = response.data.result;
+
+    await message.send(insult, { quoted: message.data });
+  } catch (error) {
+    console.error('Error fetching insult:', error);
+    await message.send('_Failed to fetch insult._', { quoted: message.data });
+  }
+});
+
+smd({
+  pattern: 'lines',
+  fromMe: false,
+  desc: 'Get a nice message',
+  type: 'fun'
+}, async (message, match) => {
+  try {
+    const response = await axios.get('https://api.maher-zubair.tech/misc/lines');
+    const messageText = response.data.result;
+
+    await message.send(messageText, { quoted: message.data });
+  } catch (error) {
+    console.error('Error fetching message:', error);
+    await message.send('_Failed to fetch message._', { quoted: message.data });
+  }
+});
+
+cmd({
+  pattern: "pick",
+  desc: "Picks a random user from the group",
+  category: "group",
+  filename: __filename
+}, async (ctx, userType) => {
+  try {
+    if (!ctx.isGroup) return ctx.reply(tlang().group);
+    if (!userType) return ctx.reply("*Which type of user do you want?*");
+    let participants = ctx.metadata.participants.map(user => user.id);
+    let randomUser = participants[Math.floor(Math.random() * participants.length)];
+    ctx.bot.sendMessage(ctx.jid, {
+      text: "The most " + userType + " around us is *@" + randomUser.split("@")[0] + "*",
+      mentions: [randomUser]
+    }, {
+      quoted: ctx
+    });
+  } catch (error) {
+    await ctx.error(error + "\n\ncommand : pick", error);
+  }
+});
+
+smd(
+  {
+    pattern: "fact",
+    desc: "Get a random  fact.",
+    category: "fun",
+    filename: __filename,
+  },
+  async (m) => {
+    try {
+      const apiUrl = "https://nekos.life/api/v2/fact";
+      const response = await fetch(apiUrl);
+
+      if (!response.ok) {
+        return await m.send(
+          `*_Error: ${response.status} ${response.statusText}_*`
+        );
+      }
+
+      const data = await response.json();
+      const {fact, contributor } = data;
+
+      const message = `*fact:* ${fact}`;
+
+      await m.send(message);
+    } catch (e) {
+      await m.error(`${e}\n\ncommand: fact`, e);
+    }
+  }
+);
+

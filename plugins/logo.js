@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 let { smd, textToLogoGenerator, prefix } = require(lib_dir);
 
 smd(
@@ -10,7 +18,7 @@ smd(
   async (message, match, { cmdName }) => {
     try {
       if (!match)
-        return message.reply(`*_Example : ${prefix + cmdName} Asta_*`);
+        return message.reply(`*_Example : ${prefix + cmdName} whizbot_*`);
       await require(lib_dir).textToLogoGenerator(
         message,
         "hieu-ung-chu/tao-hieu-ung-chu-mam-anh-sang-74",
@@ -33,7 +41,7 @@ smd(
   async (message, match, { cmdName }) => {
     try {
       if (!match)
-        return message.reply(`*_Example : ${prefix + cmdName} Asta_*`);
+        return message.reply(`*_Example : ${prefix + cmdName} whizbot_*`);
       return await textToLogoGenerator(
         message,
         "tao-hieu-ung-chu-digital-glitch-truc-tuyen-941",
@@ -79,7 +87,7 @@ smd(
   async (message, match, { cmdName }) => {
     try {
       if (!match)
-        return message.reply(`*_Example : ${prefix + cmdName} Asta_*`);
+        return message.reply(`*_Example : ${prefix + cmdName} Whizbot_*`);
       return await textToLogoGenerator(
         message,
         "tao-hieu-ung-chu-graffiti-duong-pho-an-tuong-online-795",
@@ -102,7 +110,7 @@ smd(
   async (message, match, { cmdName }) => {
     try {
       if (!match)
-        return message.reply(`*_Example : ${prefix + cmdName} Asta_*`);
+        return message.reply(`*_Example : ${prefix + cmdName} Whizbot_*`);
       return await textToLogoGenerator(
         message,
         "hieu-ung-chu/chu-graffiti-online-mau-8-182",

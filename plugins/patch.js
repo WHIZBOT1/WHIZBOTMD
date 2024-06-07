@@ -1,3 +1,5 @@
+
+
 const os = require("os");
 const fs = require("fs");
 const Config = require("../config");
@@ -662,7 +664,7 @@ smd(
 
       const cpuName = process.cpuData ? process.cpuData.modelName : "Unknown";
 
-      const message = `*Asta MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
+      const message = `*whizbot MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
 
       const button = [
         {

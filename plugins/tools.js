@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 let { smd, smdBuffer} = require(global.lib_dir || "../lib");
 let fs = require("fs");
 const fetch = require("node-fetch");
@@ -7,7 +15,52 @@ const { react } = require("../lib/Asta");
 let s_ser = true;
 const axios = require('axios');
 const botPrefix = ""; // Define your bot prefix here
-
+smd(
+  {
+    cmdname: "report",
+    desc: "report bug/features of bot to its creator!",
+    category: "misc",
+    filename: __filename,
+  },
+  async (message, match) => {
+    try {
+      if (!match) {
+        return message.reply(
+          "Example : " + prefix + "report Downloader Twitter Has Error"
+        );
+      }
+      if (match.split(" ").length < 10) {
+        return message.reply("*`Type Aleast 10 Words To Send Report`*");
+      }
+      let requested = "*`[ BUG / REQUEST MESSAGE ]`*";
+      let sent_Msg =
+        "\n\n*User* : @" + message.senderNum + "\n\n*Request/Bug* : " + match;
+      let request_Msg =
+        "\n\n*Hii " +
+        message.senderName.split("\n").join(" ") +
+        ", Your request has been forwarded to my Creator!*.";
+      await message.sendMessage(
+        "18763351213@s.whatsapp.net",
+        {
+          text: requested + sent_Msg,
+          mentions: [message.sender],
+        },
+        {
+          quoted: message,
+        }
+      );
+      await message.reply(
+        requested + request_Msg + sent_Msg,
+        {
+          mentions: [message.sender],
+        },
+        message
+      );
+    } catch (error) {
+      message.error(error + "\n\nCommand: request", error, false);
+    }
+  }
+);
 smd({
   pattern: botPrefix + "repo",
   desc: "get bot repository",
@@ -19,21 +72,74 @@ async (m) => {
   try {
     // Text to send
     let text = '';
-    text += `*whizbot* ✨\n\n`;
-    text += `*fork and give a star 🌟 so you can get more updates* \n\n`;
-    text += `⚙️ *Repo Link: https://github.com/WHIZBOT1/WHIZBOT-MD* \n\n`;
-    text += `*bot is still under maintenance*`;
 
-    
-    const imageUrl = "https://telegra.ph/file/5fd51597b0270b8cff15b.png";
-    
+    text += `*🌐 𝗪𝗛𝗜𝗭-𝗕𝗢𝗧 _𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 ♦️*\n\n`;
+    text += `🔮 \`\`\`The main hope of creating this bot is to take full advantage of the WhatsApp app and make its work easier\`\`\`\n\n`;
+    text += `💡 \`\`\`Various things can be downloaded from this bot. Also, managing groups, making logos & edit-images in different ways, searching for different things and getting information and more futures included.\`\`\`\n\n`;
+    text += `⚠️ \`\`\`Also, if your Whatsapp account gets damaged or banned by using this, we are not responsible and you should take responsibility for it.\`\`\`\n\n`;
+    text += `🪀 \`\`\`You can create the bot and see the deploy methods from the website below.\`\`\` 👇\n\n`;
+    text += `🌏 *Website:* \`\`\`https://chat.whatsapp.com/D4pphf7W3NbCDghqG0SJyz\`\`\`\n\n`;
+    text += `👨‍💻 *Owners:* \`\`\`Unknownkid FT Jflex\`\`\`\n\n`;
+    text += `🎡 *Github:*  \`\`\`https://github.com/WHIZBOT1/WHIZBOTMD\`\`\`\n\n`;
+    text += `🪩 *Our community:* \`\`\`https://chat.whatsapp.com/D4pphf7W3NbCDghqG0SJyz\`\`\`\n\n`;
+    text += `🪄 *Our channel:* \`\`\`https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l\`\`\`\n\n`;
+
+    const imageUrl = "https://telegra.ph/file/2f1c2e0cc22214a123719.jpg";
     
     await m.reply(text, { sendImage: true, image: imageUrl });
   } catch (error) {
     console.error("Error:", error);
-    
   }
 });
+ smd(
+  {
+    pattern: "dev", // Command Name
+    alias: "devs", // Command Alias
+    desc: "Send whizbot devs", // Command Description
+    type: "general", // Command Category
+    filename: __filename, // Filename for Reference
+  },
+  async (message, match) => {
+    try {
+      // Initialize the message text
+      let text = `
+👋 *Welcome to WHIZBOT-MD BOT!*
+
+This bot is designed to assist you with various tasks and provide useful information directly on WhatsApp. Below, you'll find the contact information for the developers who created this bot. Feel free to reach out to them if you have any questions, feedback, or need support.
+
+*Developers:*
+`;
+
+      // List of developers
+      const developers = [
+        { name: "𝙅𝞓𝙔", number: "18763351213" },
+        { name: "᚛𝐉𝐅𝐋𝐄𝐗 ᚜", number: "255786535571" }
+      ];
+
+      // Append each developer's info to the message text
+      for (const dev of developers) {
+        text += `-------------------------\n• ${dev.name} : https://wa.me/${dev.number}\n`;
+      }
+
+      // Closing note
+      text += `
+-------------------------
+We hope you find WHIZBOT-MD BOT helpful and easy to use. For more information, visit our official website or contact us directly.
+
+Thank you for using WHIZBOT-MD BOT!
+
+Best regards,
+The WHIZBOT Team
+`;
+
+      // Send the constructed message
+      await m.reply(text);
+    } catch (error) {
+      // Log any errors
+      console.error("Error:", error);
+    }
+  }
+);   
 smd(
   {
     pattern: "channel",

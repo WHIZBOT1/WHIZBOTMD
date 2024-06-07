@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 const { smd, tlang, send, prefix, Config, groupdb } = require("../lib");
 let gis = require("async-g-i-s");
 const axios = require("axios");

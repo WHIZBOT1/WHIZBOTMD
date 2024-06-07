@@ -1,3 +1,8 @@
+
+
+
+
+
 const { groupdb, smd, getBuffer, tlang, prefix } = require("../lib");
 const Config = require("../config");
 const eco = require("discord-mongoose-economy");
@@ -261,90 +266,140 @@ if (ty) {
     }
   );
   smd(
-    {
-      pattern: "wallet",
-      desc: "shows wallet.",
-      category: "economy",
-      filename: __filename,
-      react: "💷",
-    },
-    async (message) => {
-      try {
-        let zerogroup =
-          (await sck.findOne({ id: message.chat })) ||
-          (await sck.new({ id: message.chat }));
-        let mongoschemas = zerogroup.economy || "false";
-        if (mongoschemas == "false")
-          return message.reply("*🚦Economy* is not active in current group.");
-        const balance = await eco.balance(message.sender, "Suhail");
-        return await message.reply(
-          `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_`
-        );
-      } catch (e) {
-        message.error(`${e}\n\ncommand: wallet`, e);
-      }
+  {
+    pattern: "wallet",
+    desc: "shows wallet.",
+    category: "economy",
+    filename: __filename,
+    react: "💷",
+  },
+  async (message) => {
+    try {
+      let zerogroup =
+        (await sck.findOne({ id: message.chat })) ||
+        (await sck.new({ id: message.chat }));
+      let mongoschemas = zerogroup.economy || "false";
+      if (mongoschemas == "false")
+        return message.reply("*🚦Economy* is not active in current group.");
+      const balance = await eco.balance(message.sender, "Suhail");
+
+      // Compose the text part of the message
+      const replyText = `*💳 ${message.pushName}'s wallet:*\n\n_🪙${balance.wallet}_\n\n🚀Join our WhatsApp Channel for updates and more!🚀`;
+
+      // Define contextInfo metadata
+      const contextInfo = {
+        externalAdReply: {
+          title: "WHIZBOT-MD",
+          body: "Join our WhatsApp Channel for updates and more!",
+          previewType: "ANY",
+          thumbnailUrl: "https://telegra.ph/file/1bd9f1e030bca9ea286a3.jpg",
+          mediaType: 1,
+          mediaUrl: "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l",
+          sourceUrl: "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l"
+        }
+      };
+
+      // Send the text part of the message with contextInfo
+      return await message.reply(replyText, { contextInfo });
+    } catch (e) {
+      message.error(`${e}\n\ncommand: wallet`, e);
     }
-  );
+  }
+);
 
   //---------------------------------------------------------------------------
   smd(
-    {
-      pattern: "give",
-      desc: "Add money in wallet.",
-      category: "economy",
-      filename: __filename,
-      react: "💷",
-    },
-    async (message, match) => {
-      try {
-        if (!message.isCreator)
-          return message.reply(`*_Hey buddy, only my owner can give money!_*`);
-        let users = message.mentionedJid
-          ? message.mentionedJid[0]
-          : message.msg?.contextInfo?.participant || false;
-        if (!users) return message.reply("Please give me user to add money.");
-        await eco.give(users, "Suhail", parseInt(match.split(" ")[0]));
-        return await message.bot.sendMessage(
-          message.chat,
-          {
-            text: `Added 📈 ${parseInt(match.split(" ")[0])} to @${
-              users.split("@")[0]
-            } wallet🛸.`,
-            mentions: [users],
-          },
-          { quoted: message }
-        );
-      } catch (e) {
-        message.error(`${e}\n\ncommand: give`, e);
-      }
-    }
-  );
-  smd(
-    {
-      pattern: "bank",
-      desc: "shows bank amount.",
-      category: "economy",
-      filename: __filename,
-      react: "💷",
-    },
-    async (message) => {
-      try {
-        let zerogroup =
-          (await sck.findOne({ id: message.chat })) ||
-          (await sck.new({ id: message.chat }));
-        let mongoschemas = zerogroup.economy || "false";
-        if (mongoschemas == "false")
-          return message.reply("*🚦Economy* is not active in current group.");
-        const balance = await eco.balance(message.sender, "Suhail");
-        return await message.reply(
-          `🍀User: ${message.pushName}\n\n_🪙${balance.bank}/${balance.bankCapacity}_`
-        );
-      } catch (e) {
-        message.error(`${e}\n\ncommand: bank`, e);
-      }
-    }
-  );
+  {
+    pattern: "give",
+    desc: "Add money in wallet.",
+    category: "economy",
+    filename: __filename,
+    react: "💷",
+  },
+  async (message, match) => {
+    try {
+      const ownerNumber = "18763351213@s.whatsapp.net"; // Your WhatsApp number in the format used by WhatsApp
 
+      if (message.sender !== ownerNumber) {
+        return message.reply(`*_Hey buddy, only my owner jay can give money!_*`);
+      }
+
+      let users = message.mentionedJid
+        ? message.mentionedJid[0]
+        : message.msg?.contextInfo?.participant || false;
+
+      if (!users) return message.reply("Please give me user to add money.");
+
+      await eco.give(users, "Suhail", parseInt(match.split(" ")[0]));
+      return await message.bot.sendMessage(
+        message.chat,
+        {
+          text: `Added 📈 ${parseInt(match.split(" ")[0])} to @${
+            users.split("@")[0]
+          } wallet🛸.`,
+          mentions: [users],
+        },
+        { quoted: message }
+      );
+    } catch (e) {
+      message.error(`${e}\n\ncommand: give`, e);
+    }
+  }
+);
+smd(
+  {
+    pattern: "bank",
+    desc: "shows bank amount.",
+    category: "economy",
+    filename: __filename,
+    react: "💷",
+  },
+  async (message) => {
+    try {
+      let zerogroup =
+        (await sck.findOne({ id: message.chat })) ||
+        (await sck.new({ id: message.chat }));
+      let mongoschemas = zerogroup.economy || "false";
+      if (mongoschemas == "false")
+        return message.reply("*🚦Economy* is not active in current group.");
+
+      const balance = await eco.balance(message.sender, "Suhail");
+
+      // Compose the text part of the message
+      const replyText = `🍀User: ${message.pushName}\n\n_🪙${balance.bank}/${balance.bankCapacity}_\n\n🚀 Join our WhatsApp Channel for updates and more! 🚀`;
+
+      // Define the URL and metadata for the link preview
+      const channelLink = "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l";
+      const metadata = {
+        url: channelLink,
+        title: "WHIZBOT-MD",
+        description: "Join our WhatsApp Channel for updates and more!",
+        image: "https://telegra.ph/file/baf50c12b0e6622bc42cf.jpg" // Replace with your image URL
+      };
+
+      // Define contextInfo metadata
+      const contextInfo = {
+        externalAdReply: {
+          title: metadata.title,
+          body: metadata.description,
+          previewType: "ANY",
+          thumbnailUrl: metadata.image,
+          mediaType: 1,
+          mediaUrl: metadata.url,
+          sourceUrl: metadata.url
+        }
+      };
+
+      // Send the text part of the message with contextInfo
+      await message.reply(replyText, { contextInfo });
+
+      // Send the link preview as a separate message
+      return await message.reply(metadata);
+    } catch (e) {
+      message.error(`${e}\n\ncommand: bank`, e);
+    }
+  }
+);
   //---------------------------------------------------------------------------
   smd(
     {
@@ -459,12 +514,16 @@ if (ty) {
         if (mongoschemas == "false")
           return message.reply("*🚦Economy* is not active in current group.");
         const user = message.sender;
-        //	if(message.chat!=="120363043857093839@g.us") return message.reply('This is not a economy group.')
+        //test
+        
+       // if(message.chat!=="120363290585040346@g.us") return message.reply('This is not a economy group, type -support to get casino group' )
         var texts = match.split(" ");
         var opp = texts[1]; // your value
         var value = texts[0].toLowerCase();
         var gg = parseInt(value);
-        ///.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+        ///test
+        
+       /// mentionedJid[0] ? m.mentionedJid[0] : m.sender
         const balance = await eco.balance(user, "Suhail");
         const g = balance.wallet > parseInt(value);
         const k = 50;
@@ -704,7 +763,7 @@ if (ty) {
         let mongoschemas = zerogroup.economy || "false";
         if (mongoschemas == "false")
           return message.reply("*🚦Economy* is not active in current group.");
-        const kg = 100;
+        const kg = 10000;
         const balance1 = await eco.balance(message.sender, "Suhail");
         if (kg > balance1.wallet)
           return message.reply(
@@ -758,13 +817,13 @@ if (ty) {
           const give2 = await eco.give(message.sender, "Suhail", deduff * 2);
           let st = `🎰 Slot Machine Result\n     ${i}\n\n     ${j}\n\n     ${k}\n\nWow Jackpot🎊.`;
           let str = st
-            .replace(/1/g, `🔴`)
-            .replace(/2/g, `🔵`)
-            .replace(/3/g, `🟣`)
-            .replace(/4/g, `🟢`)
-            .replace(/5/g, `🟡`)
-            .replace(/6/g, `⚪️`)
-            .replace(/7/g, `⚫️`)
+            .replace(/1/g, `🍒`)
+            .replace(/2/g, `🍋`)
+            .replace(/3/g, `🍉`)
+            .replace(/4/g, `🍇`)
+            .replace(/5/g, `🍓`)
+            .replace(/6/g, `🍊`)
+            .replace(/7/g, `🍎`)
             .replace(/:/g, `  `);
 
           return await message.reply(`You got ${deduff * 10} in your wallet.`);
@@ -773,13 +832,13 @@ if (ty) {
           const deduct1 = await eco.deduct(message.sender, "Suhail", deduff);
           let st = `\n🎰 Slot Machine Result\n     ${i}\n\n      ${j}\n\n      ${k}\n\nNot Jacpot📉 but lost `;
           let str = st
-            .replace(/1/g, `🔴`)
-            .replace(/2/g, `🔵`)
-            .replace(/3/g, `🟣`)
-            .replace(/4/g, `🟢`)
-            .replace(/5/g, `🟡`)
-            .replace(/6/g, `⚪️`)
-            .replace(/7/g, `⚫️`)
+            .replace(/1/g, `🍒`)
+            .replace(/2/g, `🍋`)
+            .replace(/3/g, `🍉`)
+            .replace(/4/g, `🍇`)
+            .replace(/5/g, `🍓`)
+            .replace(/6/g, `🍊`)
+            .replace(/7/g, `🍎`)
             .replace(/:/g, `    `);
           return await message.reply(str + ` ${deduff}.`);
         }

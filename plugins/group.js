@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 global.warncount = process.env.WARN_COUNT || global.warncount || "3";
 global.MsgsInLog = process.env.MSGS_IN_LOG || global.MsgsInLog || "false";
 const { updateProfilePicture, parsedJid } = require("../lib");
@@ -1238,77 +1246,77 @@ smd(
     category: "group",
     filename: __filename,
   },
-  async (_0x8c602e) => {
-    if (!_0x8c602e.isGroup) {
-      return _0x8c602e.reply(tlang().group);
+  async (event) => {
+    if (!event.isGroup) {
+      return event.reply(tlang().group);
     }
-    let _0x456468 = _0x8c602e.metadata.participants.map(
-      (_0x119157) => _0x119157.id
+    let participants = event.metadata.participants.map(
+      (participant) => participant.id
     );
-    var _0x37f2d4 = _0x8c602e.reply_message
-      ? _0x8c602e.reply_message.sender
-      : _0x8c602e.mentionedJid[0]
-      ? _0x8c602e.mentionedJid[0]
+    var target = event.reply_message
+      ? event.reply_message.sender
+      : event.mentionedJid[0]
+      ? event.mentionedJid[0]
       : false;
-    var _0x7fa6d0;
-    if (_0x37f2d4) {
-      _0x7fa6d0 = _0x37f2d4;
+    var selected;
+    if (target) {
+      selected = target;
     } else {
-      _0x7fa6d0 = _0x456468[Math.floor(Math.random() * _0x456468.length)];
+      selected = participants[Math.floor(Math.random() * participants.length)];
     }
-    if (_0x8c602e.sender === _0x7fa6d0) {
-      return _0x8c602e.reply(
+    if (event.sender === selected) {
+      return event.reply(
         "*Wait... What!!!,You wanna do matchmaking with yourself!*"
       );
     }
-    async function _0x30a2ec() {
-      var _0x523d04;
-      const _0x4e5253 = Math.floor(Math.random() * 100);
-      if (_0x4e5253 < 25) {
-        _0x523d04 =
+    async function getRelationshipPercentage() {
+      var response;
+      const percentage = Math.floor(Math.random() * 100);
+      if (percentage < 25) {
+        response =
           "\t\t\t\t\t*RelationShip Percentage : " +
-          _0x4e5253 +
+          percentage +
           "%* \n\t\tThere's still time to reconsider your choices";
-      } else if (_0x4e5253 < 50) {
-        _0x523d04 =
+      } else if (percentage < 50) {
+        response =
           "\t\t\t\t\t*RelationShip Percentage : " +
-          _0x4e5253 +
+          percentage +
           "%* \n\t\t Good enough, I guess! 💫";
-      } else if (_0x4e5253 < 75) {
-        _0x523d04 =
+      } else if (percentage < 75) {
+        response =
           "\t\t\t\t\t*RelationShip Percentage : " +
-          _0x4e5253 +
+          percentage +
           "%* \n\t\t\tStay together and you'll find a way ⭐️";
-      } else if (_0x4e5253 < 90) {
-        _0x523d04 =
+      } else if (percentage < 90) {
+        response =
           "\t\t\t\t\t*RelationShip Percentage : " +
-          _0x4e5253 +
+          percentage +
           "%* \n\tAmazing! You two will be a good couple 💖 ";
       } else {
-        _0x523d04 =
+        response =
           "\t\t\t\t\t*RelationShip Percentage : " +
-          _0x4e5253 +
+          percentage +
           "%* \n\tYou both are fit to be together 💙";
       }
-      return _0x523d04;
+      return response;
     }
-    var _0x1a1a8e = {
-      ...(await _0x8c602e.bot.contextInfo("Matchmaking", "   ˚ʚ♡ɞ˚")),
+    var contextInfo = {
+      ...(await event.bot.contextInfo("Matchmaking", "   ˚ʚ♡ɞ˚")),
     };
-    await _0x8c602e.reply(
+    await event.reply(
       "\t❣️ *Matchmaking...* ❣️\n\t*✯────────────────────✯*\n@" +
-        _0x8c602e.sender.split("@")[0] +
+        event.sender.split("@")[0] +
         "  x  @" +
-        _0x7fa6d0.split("@")[0] +
+        selected.split("@")[0] +
         "\n\t*✯────────────────────✯*\n\n" +
-        (await _0x30a2ec()) +
+        (await getRelationshipPercentage()) +
         "\n\n" +
         Config.caption,
       {
-        contextInfo: _0x1a1a8e,
-        mentions: [_0x7fa6d0],
+        contextInfo: contextInfo,
+        mentions: [selected],
       },
-      "asta"
+      "suhail"
     );
   }
 );

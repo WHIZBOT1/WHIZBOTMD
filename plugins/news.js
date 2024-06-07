@@ -1,3 +1,5 @@
+
+
 let { smd } = require("../lib");
 const axios = require("axios");
 smd({ pattern: "wabeta", desc: "Fetches the latest WhatsApp beta information.", category: "news", filename: __filename, use: "wabeta", }, async (message, input) => {
