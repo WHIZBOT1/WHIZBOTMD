@@ -632,7 +632,7 @@ smd(
 
 
 
-const { smd } = require("../lib");
+
 const eco = require("discord-mongoose-economy");
 const { cmd } = require("../lib/plugins");
 
