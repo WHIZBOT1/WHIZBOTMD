@@ -20,7 +20,7 @@ const axios = require('axios');
 
 
 const { dare, truth, random_question } = require('../lib/truth-dare.js');
-const { fetchJson, smd, tlang, sleep } = require('../lib/');
+const { fetchJson, tlang, sleep } = require('../lib/');
 const fetch = require('node-fetch');
 
 // Random Question Command
