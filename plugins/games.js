@@ -1,5 +1,45 @@
 
+// commands/rank.js
+const User = require('../models/User');
 
+smd(
+  {
+    cmdname: "rank",
+    desc: "Displays the rank of the user",
+    category: "info",
+    filename: __filename,
+  },
+  async (message) => {
+    try {
+      // Get the user data from the database
+      let user = await User.findOne({ userId: message.sender });
+
+      // If the user does not exist, create a new one
+      if (!user) {
+        user = new User({
+          userId: message.sender,
+          username: message.senderName,
+        });
+        await user.save();
+      }
+
+      // Get the user's rank
+      const allUsers = await User.find().sort({ points: -1 });
+      const rank = allUsers.findIndex(u => u.userId === message.sender) + 1;
+
+      // Respond with the user's rank and points
+      const response = `📊 *Rank of @${message.senderName}* 📊\n\n` +
+        `*Username:* ${user.username}\n` +
+        `*Points:* ${user.points}\n` +
+        `*Rank:* ${rank} / ${allUsers.length}`;
+
+      message.reply(response);
+    } catch (error) {
+      console.error(error);
+      message.reply("❌ An error occurred while fetching your rank.");
+    }
+  },
+);
 
 
 
