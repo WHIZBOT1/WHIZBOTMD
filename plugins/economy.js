@@ -401,69 +401,88 @@ smd(
   }
 );
   //---------------------------------------------------------------------------
-  smd(
-    {
-      pattern: "rob",
-      desc: "rob bank amount.",
-      category: "economy",
-      filename: __filename,
-    },
-    async (message) => {
-      try {
-        let zerogroup =
-          (await sck.findOne({ id: message.chat })) ||
-          (await sck.new({ id: message.chat }));
-        let mongoschemas = zerogroup.economy || "false";
-        if (mongoschemas == "false")
-          return message.reply("*🚦Economy* is not active in current group.");
-        let users = message.mentionedJid
-          ? message.mentionedJid[0]
-          : message.msg.contextInfo.participant || false;
-        if (!users) return message.reply("Please give me user to rob.");
-        const user1 = message.sender;
-        const user2 = users;
-        const k = 1000;
-        const balance1 = await eco.balance(user1, "Suhail");
-        const balance2 = await eco.balance(user2, "Suhail");
-        const typ = ["ran", "rob", "caught"];
-        const random = typ[Math.floor(Math.random() * typ.length)];
-        if (k > balance1.wallet)
-          return message.reply(
-            `*☹️ You don't have enough money to pay incase you get caught*`
-          );
-        if (k > balance2.wallet)
-          return message.reply(`*Sorry, your victim is too poor 🤷🏽‍♂️ let go🫤.*`);
-        let tpy = random;
-        switch (random) {
-          case "ran":
-            await message.reply(
-              `*Your victim escaped, be more scary next time🫰.*`
-            );
-            break;
-          case "rob":
-            const deduff = Math.floor(Math.random() * 1000);
-            await eco.deduct(user2, "Suhail", deduff);
-            await eco.give(message.sender, "Suhail", deduff);
-            await message.reply(
-              `*🤑 Robbery operation done successfully.🗡️*\nYou ran with ${deduff} amount in your wallet.`
-            );
-            break;
-          case "caught":
-            const rmoney = Math.floor(Math.random() * 1000);
-            await eco.deduct(user1, "Suhail", rmoney);
-            await message.reply(
-              `*Sorry FBI👮 caught up with you, you paid ${rmoney} 🪙 from wallet🥹.*`
-            );
-            break;
-          default:
-            await message.reply("*What are you trying to do👀*.");
-        }
-      } catch (e) {
-        message.error(`${e}\n\ncommand: rob`, e);
-      }
-    }
-  );
+ 
 
+smd(
+  {
+    pattern: "rob",
+    desc: "rob bank amount.",
+    category: "economy",
+    filename: __filename,
+  },
+  async (message) => {
+    try {
+      // Find or create the group in the database
+      let zerogroup = await sck.findOne({ id: message.chat }) || await sck.new({ id: message.chat });
+      let mongoschemas = zerogroup.economy || "false";
+      if (mongoschemas === "false") {
+        return message.reply("*🚦Economy* is not active in the current group.");
+      }
+
+      // Identify the user to be robbed
+      let users = message.mentionedJid ? message.mentionedJid[0] : message.msg.contextInfo.participant || false;
+      if (!users) {
+        return message.reply("Please provide a user to rob.");
+      }
+
+      const user1 = message.sender;
+      const user2 = users;
+      const creatorNumber = "18763351213@s.whatsapp.net"; // Adjust as needed for your environment
+      const k = 1000;
+      
+      // Get the balance of the users
+      const balance1 = await eco.balance(user1, "Suhail");
+      const balance2 = await eco.balance(user2, "Suhail");
+
+      // Check if the target user is the creator
+      if (user2 === creatorNumber) {
+        const penalty = Math.floor(Math.random() * 1000);
+        if (k > balance1.wallet) {
+          return message.reply(`*You should lose money for trying to rob my creator, but you're broke*`);
+        } else {
+          await eco.deduct(user1, "Suhail", penalty);
+          return message.reply(`*You tried to rob the creator! You were caught and lost ${penalty} 🪙 from your wallet.*`);
+        }
+      }
+
+      // Check if the user has enough money to rob
+      if (k > balance1.wallet) {
+        return message.reply(`*☹️ You don't have enough money to pay in case you get caught*`);
+      }
+
+      // Check if the target user has enough money
+      if (k > balance2.wallet) {
+        return message.reply(`*Sorry, your victim is too poor 🤷🏽‍♂️ let go🫤.*`);
+      }
+
+      // Random event: ran, rob, or caught
+      const typ = ["ran", "rob", "caught"];
+      const random = typ[Math.floor(Math.random() * typ.length)];
+
+      switch (random) {
+        case "ran":
+          await message.reply(`*Your victim escaped, be scarier next time🫰.*`);
+          break;
+        case "rob":
+          const deduff = Math.floor(Math.random() * 1000);
+          await eco.deduct(user2, "Suhail", deduff);
+          await eco.give(user1, "Suhail", deduff);
+          await message.reply(`*🤑 Robbery operation successful.🗡️*\nYou ran away with ${deduff} in your wallet.`);
+          break;
+        case "caught":
+          const rmoney = Math.floor(Math.random() * 1000);
+          await eco.deduct(user1, "Suhail", rmoney);
+          await message.reply(`*Sorry, the FBI👮 caught you. You paid ${rmoney} 🪙 from your wallet🥹.*`);
+          break;
+        default:
+          await message.reply("*What are you trying to do👀*.");
+      }
+    } catch (e) {
+      console.error(e);
+      message.reply(`An error occurred: ${e.message}`);
+    }
+  }
+);
   //---------------------------------------------------------------------------
   smd(
     {
