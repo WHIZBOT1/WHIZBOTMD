@@ -1,3 +1,4 @@
+import amd from './lib';
 let bots = false;
 const { 
 	smd, 
