@@ -7,7 +7,7 @@
 
 
 
-const { Config, smd, tlang } = require("../lib");
+const { Config, sleep, botpic, smdBuffer, send, smd, tlang } = require("../lib");
 const cmd = smd;
 let antiCallMessage =
   process.env.ANTICALL_MESSAGE ||
