@@ -192,9 +192,9 @@ smd(
   }
 );
 
-astro_patch.smd(
+ smd(
   {
-    cmdname: "menu",
+    cmdname: "menu3",
     desc: "Help list",
     react: "✝️",
     type: "user",
