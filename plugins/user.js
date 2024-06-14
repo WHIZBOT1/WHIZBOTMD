@@ -3,7 +3,8 @@
 
 
 
-
+const fs = require('fs-extra')
+const Levels = require("discord-xp");
 
 
 const { RandomXP } = require(__dirname + '/database/xp')
