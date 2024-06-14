@@ -6,7 +6,7 @@
 
 
 
-
+const { RandomXP } = require(__dirname + '/database/xp')
 const { Config, sleep, botpic, smdBuffer, send, smd, tlang } = require("../lib");
 const cmd = smd;
 let antiCallMessage =
