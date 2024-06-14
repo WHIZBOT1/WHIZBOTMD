@@ -196,7 +196,7 @@ astro_patch.smd(
   {
     cmdname: "menu",
     desc: "Help list",
-    react: "📃",
+    react: "✝️",
     type: "user",
     filename: __filename,
   },
