@@ -5,8 +5,8 @@ global.audio = "";
 global.video = "";
 global.port = process.env.PORT;
 global.appUrl = process.env.APP_URL || "";
-global.email = "botsatwork892@gmail.com";
-global.location = "Lahore,Pakistan.";
+global.email = "jamesmarthings474@gmail.com";
+global.location = "Lahore,Pakistan,Nigeria";
 global.mongodb = process.env.MONGODB_URI || "mongodb+srv://casinobot:123johniphone@cluster0.nfztvsi.mongodb.net/?retryWrites=true&w=majority";
 global.allowJids = process.env.ALLOW_JID || "null";
 global.blockJids = process.env.BLOCK_JID || "null";
@@ -17,8 +17,8 @@ global.gurl = process.env.GURL || "https://whatsapp.com/channel/0029VacWsSl3LdQO
 global.website = process.env.GURL || "https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l";
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || process.env.IMAGE || "https://telegra.ph/file/95ce6ad6559693eba92d2.jpg";
 global.devs = "18763351213";
-global.sudo = process.env.SUDO || "18763351213";
-global.owner = process.env.OWNER_NUMBER || "18763351213";
+global.sudo = process.env.SUDO || "8132770719";
+global.owner = process.env.OWNER_NUMBER || "8132770719";
 global.style = process.env.STYLE || "3";
 global.gdbye = process.env.GOODBYE || "false";
 global.wlcm = process.env.WELCOME || "false";
@@ -30,7 +30,7 @@ global.userImages = process.env.USER_IMAGES || "";
 global.waPresence = process.env.WAPRESENCE || "online";
 global.readcmds = process.env.READ_COMMAND || "false";
 global.readmessage = process.env.READ_MESSAGE || "false";
-global.readmessagefrom = process.env.READ_MESSAGE_FROM || "18763351214";
+global.readmessagefrom = process.env.READ_MESSAGE_FROM || "";
 global.read_status = process.env.AUTO_READ_STATUS || "false";
 global.save_status = process.env.AUTO_SAVE_STATUS || "false";
 global.save_status_from = process.env.SAVE_STATUS_FROM || "";
@@ -47,11 +47,11 @@ module.exports = {
   HANDLERS: process.env.PREFIX || "",
   BRANCH: process.env.BRANCH || "main",
   VERSION: process.env.VERSION || "1.0.0",
-  caption: process.env.CAPTION || "©️ 𝛲𝛩𝑊𝛯𝑅𝐷 𝐵𝑌 𝑊𝛨𝛪𝛧𝐵𝛩𝑇-𝛭𝐷",
-  author: process.env.PACK_AUTHER || "WHIZBOT-ᴍᴅ",
+  caption: process.env.CAPTION || "©️ 𝛲𝛩𝑊𝛯𝑅𝐷 𝐵𝑌 OFFICIAL_KY",
+  author: process.env.PACK_AUTHER || "Official",
   packname: process.env.PACK_NAME || "♥️",
-  botname: process.env.BOT_NAME || "WHIZBOT-MD",
-  ownername: process.env.OWNER_NAME || "JAY BOTS",
+  botname: process.env.BOT_NAME || "OFFICIAL BOT",
+  ownername: process.env.OWNER_NAME || "OFFICIAL_KY",
   errorChat: process.env.ERROR_CHAT || "",
   KOYEB_API: process.env.KOYEB_API || "false",
   REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
