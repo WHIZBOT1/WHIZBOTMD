@@ -107,6 +107,70 @@ smd({
 
 
 
+// Load or initialize the game data
+const gameFilePath = path.resolve(__dirname, 'gameData.json');
+let gameData = {};
+
+// Load or initialize the game data
+if (fs.existsSync(gameFilePath)) {
+  gameData = JSON.parse(fs.readFileSync(gameFilePath, 'utf8'));
+} else {
+  gameData = {};
+  fs.writeFileSync(gameFilePath, JSON.stringify(gameData, null, 2), 'utf8');
+}
+
+smd({
+  pattern: "sgg",
+  desc: "Start a new guessing game.",
+  filename: __filename,
+  category: "group"
+}, async (message, input) => {
+  const userId = message.sender;
+  
+  // Generate a random number between 1 and 100
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+  
+  // Initialize the user's guessing game data
+  gameData[userId] = { randomNumber };
+  fs.writeFileSync(gameFilePath, JSON.stringify(gameData, null, 2), 'utf8');
+  
+  // Reply with instructions
+  await message.reply("Welcome to the Guessing Game! I've picked a random number between 1 and 100. Try to guess it.");
+});
+
+smd({
+  pattern: "guess2",
+  desc: "Make a guess in the guessing game.",
+  filename: __filename,
+  category: "group"
+}, async (message, input) => {
+  const userId = message.sender;
+  const guess = parseInt(input.toLowerCase().replace("guess", "").trim());
+  
+  if (!gameData[userId]) {
+    await message.reply("No guessing game in progress. Start a new game using 'startguessinggame' command.");
+    return;
+  }
+  
+  if (isNaN(guess) || guess < 1 || guess > 100) {
+    await message.reply("Invalid guess. Please enter a number between 1 and 100.");
+    return;
+  }
+  
+  const randomNumber = gameData[userId].randomNumber;
+  
+  if (guess === randomNumber) {
+    // Correct guess
+    await message.reply(`Congratulations! You guessed the number ${randomNumber} correctly.`);
+    delete gameData[userId];
+    fs.writeFileSync(gameFilePath, JSON.stringify(gameData, null, 2), 'utf8');
+  } else {
+    // Incorrect guess
+    const hint = guess < randomNumber ? "higher" : "lower";
+    await message.reply(`Incorrect guess. Try a ${hint} number.`);
+  }
+});
+
 // Random Question Command
 smd(
   {
