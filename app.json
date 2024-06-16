@@ -15,8 +15,8 @@
       "value": "",
     "required" :true
     },
-    "OWNER_NAME": {
-      "description": "Name for Bot Owner",    
+    "OWNER_NAME": { 
+      "description": "Kingsley ,    
       "value": "whizbot",
       "required" :true
     }, 
@@ -27,15 +27,15 @@
     }, 
     "PREFIX": {
       "description": "Enter your desired prefix for bot. you can set `all | . | .!*`",
-      "value": "."
+      "value": "#"
     },
     "OWNER_NUMBER": {
       "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
-      "value": "18763351213"
+      "value": "24104552653"
     },
     "SESSION_ID": {
       "description": "put your SESSION_ID here.",
-      "value": ""
+      "value": "eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiRUl3MHZpYWF5UDdQQ1dORC82TnJ6bVcrQ3Q3aVV5STRCL2RGbjBEUlpFST0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoic005MHJnd0VqL0YyQXcyVEdLNXhWbVRMdFhoOXY0Q2RBWktsMXZhME96RT0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJjRU8rNGVMVFZOM0R0ZW1yRWV6RU5iVnZieUMrbzBBMEVDZ1Q3dWo2MUhBPSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiI4SldEL0l0MCtya2xKbWV0RXpYaHQwbXFvdDdNRmJuQWFwWUJWVlJLcGl3PSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IllPWXA5bkNUWnJmNkF6ckRSaDJoQjBTaGxVd1N2RFVEbk1GZWwwTHVRbTA9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6Im1UMVdjaGh5b1JnY2l3L1F3Wk1TZnRiakNhRW15Z1FObGdZL3NaQ2lZVzQ9In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiaUVBcTBuL3lWdmJGaUxJUkxMSHJPTHlpTENuSFFWV05RWTk3REJxWERrWT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiWm50bnRoMkZVNGM2TVpkbVRiQTc0QjIvcDd2SUxXR2p2VXhramtUQUl6Yz0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IklaTDZuUE1nOEdSMFNveHdOK2FBMDI0RFo2eFdYWE5pNU15ME90VmhrUE0xVHNIaEpGK0hpcE9oblN1MHhteEw2NWcrN21SSzVYdDJRN2Q4L1FXbURnPT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6NzYsImFkdlNlY3JldEtleSI6IkhvS2RWaFJSK1JMd0xQYWFsRU1wRWJHbGd2SkRpenpmaXJQbHFyVnpCd1E9IiwicHJvY2Vzc2VkSGlzdG9yeU1lc3NhZ2VzIjpbXSwibmV4dFByZUtleUlkIjozMSwiZmlyc3RVbnVwbG9hZGVkUHJlS2V5SWQiOjMxLCJhY2NvdW50U3luY0NvdW50ZXIiOjAsImFjY291bnRTZXR0aW5ncyI6eyJ1bmFyY2hpdmVDaGF0cyI6ZmFsc2V9LCJkZXZpY2VJZCI6IkkycTJmUi1tUWkydzE5RmQ5emVuTnciLCJwaG9uZUlkIjoiZjllODliMTYtNGExMi00ZTM2LTg2YzctNjI5YzQxNjc0NzJmIiwiaWRlbnRpdHlJZCI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IlZhUTBRT1VJNTU4c2ZtZTZoT2hYQzc4dHhIMD0ifSwicmVnaXN0ZXJlZCI6dHJ1ZSwiYmFja3VwVG9rZW4iOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiI2cm5HaTBMVFVScmN6TzAwRjAzYjU2WStNTVU9In0sInJlZ2lzdHJhdGlvbiI6e30sInBhaXJpbmdDb2RlIjoiVzY2QkJTNzQiLCJtZSI6eyJpZCI6IjI0MTA0NTUyNjUzOjE4QHMud2hhdHNhcHAubmV0In0sImFjY291bnQiOnsiZGV0YWlscyI6IkNPeko3WmdHRU1XcHZMTUdHQUVnQUNnQSIsImFjY291bnRTaWduYXR1cmVLZXkiOiJsLzR3Q3FQV29wUEFPRGhPN0hxcVlncnNoUjV2dDFVTTFmTFowa3VLbVFvPSIsImFjY291bnRTaWduYXR1cmUiOiJaM0luRG1PU2dRTS9iVTM0UGpxKzNldjEwWUFja05Cc3lML2ZyOW01cGJBZEljSWM5R3liMGxzS0lqcXZseUNUbDJBL3Vmb2poWDdoamJCeUdvUjREQT09IiwiZGV2aWNlU2lnbmF0dXJlIjoiRDhTTHZTWE5STnNQakI0N2N1Z2RELzVzbkwyengyWnNsb2FZTll1VExPWlpQZklVcU9BL0lyNUlsM2JNZUVNejV4Z2tZaDZxMnIveE1jNW1rWDBTQWc9PSJ9LCJzaWduYWxJZGVudGl0aWVzIjpbeyJpZGVudGlmaWVyIjp7Im5hbWUiOiIyNDEwNDU1MjY1MzoxOEBzLndoYXRzYXBwLm5ldCIsImRldmljZUlkIjowfSwiaWRlbnRpZmllcktleSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IkJaZitNQXFqMXFLVHdEZzRUdXg2cW1JSzdJVWViN2RWRE5YeTJkSkxpcGtLIn19XSwicGxhdGZvcm0iOiJhbmRyb2lkIiwibGFzdEFjY291bnRTeW5jVGltZXN0YW1wIjoxNzE4NTU1ODU4fQ=="
   
     },
     "MODE": {
@@ -55,7 +55,7 @@
     "READ_COMMAND": {
       "description": " Read bot cmds",
       "required" :false,    
-      "value": "false"
+      "value": "true"
     },
     "WARN_COUNT": {
       "description": " Warn count for users to kick/block when warn limit exceed!",
@@ -65,12 +65,12 @@
     "AUTO_SAVE_STATUS": {
       "description": " Auto save whatsapp status", 
       "required" :false,   
-      "value": "false"
+      "value": "true"
     },  
     "WAPRESENCE": {
       "description": "Fill the value: 'unavailable'(for nothing) | 'available'(for alwaysonline) | 'composing'(for typing) | 'recording' | 'paused' ",
       "required" :false,
-      "value": "online"
+      "value": "composing"
     },
     "AUTO_READ_STATUS": {
       "description": "Fill the value true if you want bot view your Statuses.",
@@ -89,8 +89,8 @@
     },
     "DISABLE_PM": {
       "description": "Disable bot in pm, Take it false if you wanna run bot in your pm (if MODE is Public)",
-      "value": "false",
-      "required" :false
+      "value": "true",
+      "required" :f
     },
     "OPENAI_API_KEY": {
       "description": "put your OPENAI api key here.Get it from beta.openai.com ",
