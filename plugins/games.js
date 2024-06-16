@@ -10,7 +10,7 @@ const {
   Config
 } = require("../lib/");
 const axios = require('axios');
-
+const gameFilePath = path.resolve(__dirname, 'gameData.json');
 
 const { dare, truth, random_question } = require('../lib/truth-dare.js');
 const { fetchJson, tlang, sleep } = require('../lib/');
@@ -107,8 +107,6 @@ smd({
 
 
 
-// Load or initialize the game data
-const gameFilePath = path.resolve(__dirname, 'gameData.json');
 let gameData = {};
 
 // Load or initialize the game data
