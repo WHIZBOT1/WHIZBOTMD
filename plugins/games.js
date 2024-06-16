@@ -1,4 +1,83 @@
+const fs = require('fs');
+const path = require('path');
 
+const levelFilePath = path.resolve(__dirname, 'levelData.json');
+let levelData = {};
+
+// Load or initialize the level data
+if (fs.existsSync(levelFilePath)) {
+  levelData = JSON.parse(fs.readFileSync(levelFilePath, 'utf8'));
+} else {
+  levelData = {
+    groups: {},
+    users: {}
+  };
+  fs.writeFileSync(levelFilePath, JSON.stringify(levelData, null, 2), 'utf8');
+}
+
+// Function to save the level data back to the JSON file
+function saveLevelData() {
+  fs.writeFileSync(levelFilePath, JSON.stringify(levelData, null, 2), 'utf8');
+}
+
+smd({
+  pattern: "levelup",
+  desc: "Check your level and message count.",
+  category: "fun",
+  use: "levelup",
+  examples: ["levelup"],
+}, async (message, input) => {
+  const groupId = message.chat;
+  const userId = message.sender;
+  
+  if (!levelData.groups[groupId] || !levelData.groups[groupId].enabled) {
+    return message.reply("Leveling system is not enabled for this group.");
+  }
+
+  if (!levelData.users[userId]) {
+    levelData.users[userId] = { count: 0, level: 1 };
+  }
+
+  levelData.users[userId].count += 1;
+  const userLevel = levelData.users[userId].level;
+  const userCount = levelData.users[userId].count;
+  const nextLevelThreshold = userLevel * 10;
+
+  if (userCount >= nextLevelThreshold) {
+    levelData.users[userId].level += 1;
+    await message.reply(`Congratulations! You leveled up to level ${levelData.users[userId].level}`);
+  } else {
+    await message.reply(`You have sent ${userCount} messages. Send ${nextLevelThreshold - userCount} more messages to reach the next level.`);
+  }
+
+  saveLevelData();
+});
+
+smd({
+  pattern: "level on",
+  desc: "Toggle the leveling system on or off for this group.",
+  category: "admin",
+  use: "togglelevel",
+  examples: ["togglelevel"],
+}, async (message, input) => {
+  const groupId = message.chat;
+  
+  // Check if the user is an admin (implement your own admin check logic)
+  if (!message.isGroupAdmin) {
+    return message.reply("Only group admins can toggle the leveling system.");
+  }
+
+  if (!levelData.groups[groupId]) {
+    levelData.groups[groupId] = { enabled: false };
+  }
+
+  levelData.groups[groupId].enabled = !levelData.groups[groupId].enabled;
+  const status = levelData.groups[groupId].enabled ? "enabled" : "disabled";
+  
+  await message.reply(`Leveling system has been ${status} for this group.`);
+  
+  saveLevelData();
+});
 
 
 
