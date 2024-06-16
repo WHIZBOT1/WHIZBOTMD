@@ -1,6 +1,64 @@
 const fs = require('fs');
 const path = require('path');
 
+// Load or initialize the rank data
+const rankFilePath = path.resolve(__dirname, 'rankData.json');
+let rankData = {};
+
+// Load or initialize the rank data
+if (fs.existsSync(rankFilePath)) {
+  rankData = JSON.parse(fs.readFileSync(rankFilePath, 'utf8'));
+} else {
+  rankData = {};
+  fs.writeFileSync(rankFilePath, JSON.stringify(rankData, null, 2), 'utf8');
+}
+
+smd({
+  pattern: "rank",
+  desc: "Show user rank based on message count.",
+  filename: __filename,
+  category: "group"
+}, async (message, input) => {
+  const chatId = message.chat;
+  const userId = message.sender;
+  
+  // Initialize the chat and user if they don't exist
+  if (!rankData[chatId]) {
+    rankData[chatId] = {};
+  }
+  if (!rankData[chatId][userId]) {
+    rankData[chatId][userId] = { count: 0, rank: "Newbie" };
+  }
+  
+  // Increase the message count for the user
+  rankData[chatId][userId].count += 1;
+  
+  // Update rank based on message count
+  const messageCount = rankData[chatId][userId].count;
+  let userRank = "Newbie";
+  if (messageCount >= 100) {
+    userRank = "Legend";
+  } else if (messageCount >= 50) {
+    userRank = "Pro";
+  } else if (messageCount >= 20) {
+    userRank = "Experienced";
+  } else if (messageCount >= 10) {
+    userRank = "Amateur";
+  }
+  rankData[chatId][userId].rank = userRank;
+
+  // Save the updated rank data
+  fs.writeFileSync(rankFilePath, JSON.stringify(rankData, null, 2), 'utf8');
+
+  // Reply with the user's current rank and message count
+  await message.reply(`
+*User:* @${userId.split('@')[0]}
+*Messages Sent:* ${messageCount}
+*Rank:* ${userRank}
+  `, { mentions: [userId] });
+});const fs = require('fs');
+const path = require('path');
+
 const levelFilePath = path.resolve(__dirname, 'levelData.json');
 let levelData = {};
 
