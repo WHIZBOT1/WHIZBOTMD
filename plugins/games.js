@@ -19,7 +19,7 @@ const fetch = require('node-fetch');
 
 
 
-/ Load or initialize the rank data
+//Load or initialize the rank data
 const rankFilePath = path.resolve(__dirname, 'rankData.json');
 let rankData = {};
 
