@@ -1,7 +1,25 @@
 const fs = require('fs');
 const path = require('path');
+const {
+  cmd
+} = require("../lib/plugins");
+const eco = require("discord-mongoose-economy");
+const {
+  smd,
+  prefix,
+  send,
+  Config
+} = require("../lib/");
+const axios = require('axios');
 
-// Load or initialize the rank data
+
+const { dare, truth, random_question } = require('../lib/truth-dare.js');
+const { fetchJson, tlang, sleep } = require('../lib/');
+const fetch = require('node-fetch');
+
+
+
+/ Load or initialize the rank data
 const rankFilePath = path.resolve(__dirname, 'rankData.json');
 let rankData = {};
 
@@ -143,22 +161,6 @@ smd({
 
 
 
-const {
-  cmd
-} = require("../lib/plugins");
-const eco = require("discord-mongoose-economy");
-const {
-  smd,
-  prefix,
-  send,
-  Config
-} = require("../lib/");
-const axios = require('axios');
-
-
-const { dare, truth, random_question } = require('../lib/truth-dare.js');
-const { fetchJson, tlang, sleep } = require('../lib/');
-const fetch = require('node-fetch');
 
 // Random Question Command
 smd(
