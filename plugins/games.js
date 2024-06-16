@@ -16,7 +16,94 @@ const { dare, truth, random_question } = require('../lib/truth-dare.js');
 const { fetchJson, tlang, sleep } = require('../lib/');
 const fetch = require('node-fetch');
 
+const fs = require('fs');
+const path = require('path');
 
+// Load or initialize the game data
+const gameFilePath = path.resolve(__dirname, 'gameData.json');
+let gameData = {};
+
+// Load or initialize the game data
+if (fs.existsSync(gameFilePath)) {
+  gameData = JSON.parse(fs.readFileSync(gameFilePath, 'utf8'));
+} else {
+  gameData = {};
+  fs.writeFileSync(gameFilePath, JSON.stringify(gameData, null, 2), 'utf8');
+}
+
+smd({
+  pattern: "startrpg",
+  desc: "Start a new RPG adventure.",
+  filename: __filename,
+  category: "group"
+}, async (message, input) => {
+  const userId = message.sender;
+  
+  // Initialize the user's RPG data
+  gameData[userId] = { level: 1, experience: 0, gold: 0 };
+  fs.writeFileSync(gameFilePath, JSON.stringify(gameData, null, 2), 'utf8');
+  
+  // Reply with the starting message
+  await message.reply(`Welcome to the Text-Based RPG! You wake up in a small village surrounded by forests. Your adventure begins now.`);
+});
+
+smd({
+  pattern: "explore",
+  desc: "Explore the surroundings in the RPG adventure.",
+  filename: __filename,
+  category: "group"
+}, async (message, input) => {
+  const userId = message.sender;
+  
+  if (!gameData[userId]) {
+    await message.reply("No RPG adventure in progress. Start a new adventure using 'startrpg' command.");
+    return;
+  }
+  
+  // Simulate exploring and gaining experience
+  const experienceGained = Math.floor(Math.random() * 50) + 1;
+  const goldFound = Math.floor(Math.random() * 20) + 1;
+  
+  gameData[userId].experience += experienceGained;
+  gameData[userId].gold += goldFound;
+  
+  // Update level based on experience
+  const currentExperience = gameData[userId].experience;
+  const currentLevel = Math.floor(Math.sqrt(currentExperience / 100)) + 1;
+  gameData[userId].level = currentLevel;
+
+  // Save the updated game data
+  fs.writeFileSync(gameFilePath, JSON.stringify(gameData, null, 2), 'utf8');
+
+  // Reply with the exploration result
+  await message.reply(`
+*Exploration Result:*
+*Experience Gained:* ${experienceGained}
+*Gold Found:* ${goldFound}
+*Current Level:* ${currentLevel}
+*Total Gold:* ${gameData[userId].gold}
+  `, { mentions: [userId] });
+});
+
+smd({
+  pattern: "status",
+  desc: "Show user's RPG status.",
+  filename: __filename,
+  category: "group"
+}, async (message, input) => {
+  const userId = message.sender;
+
+  // Retrieve the user's RPG data
+  const userData = gameData[userId];
+
+  // Reply with the user's RPG status
+  await message.reply(`
+*RPG Status:*
+*Level:* ${userData ? userData.level : 1}
+*Current Experience:* ${userData ? userData.experience : 0}
+*Gold:* ${userData ? userData.gold : 0}
+  `, { mentions: [userId] });
+});
 
 
 
