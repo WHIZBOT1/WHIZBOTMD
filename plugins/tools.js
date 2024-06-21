@@ -62,31 +62,60 @@ smd(
   }
 );
 smd({
-  pattern: botPrefix + "repo",
-  desc: "get bot repository",
+  pattern:"repo",
+  desc: "Get the bot's repository details",
   category: "info",
   filename: __filename,
-  use: botPrefix + "repo",
-},
-async (m) => {
+}, async (m) => {
   try {
-    // Text to send
-    let text = '';
+    // Fetching the image as a buffer
+    const imageBuffer = await axios.get("https://telegra.ph/file/f06bc8336970db46f71f9.jpg", {
+      responseType: "arraybuffer",
+    });
 
-    text += `*🌐 𝗪𝗛𝗜𝗭-𝗕𝗢𝗧 _𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 ♦️*\n\n`;
-    text += `🔮 \`\`\`The main hope of creating this bot is to take full advantage of the WhatsApp app and make its work easier\`\`\`\n\n`;
-    text += `💡 \`\`\`Various things can be downloaded from this bot. Also, managing groups, making logos & edit-images in different ways, searching for different things and getting information and more futures included.\`\`\`\n\n`;
-    text += `⚠️ \`\`\`Also, if your Whatsapp account gets damaged or banned by using this, we are not responsible and you should take responsibility for it.\`\`\`\n\n`;
-    text += `🪀 \`\`\`You can create the bot and see the deploy methods from the website below.\`\`\` 👇\n\n`;
-    text += `🌏 *Website:* \`\`\`https://chat.whatsapp.com/D4pphf7W3NbCDghqG0SJyz\`\`\`\n\n`;
-    text += `👨‍💻 *Owners:* \`\`\`Unknownkid FT Jflex\`\`\`\n\n`;
-    text += `🎡 *Github:*  \`\`\`https://github.com/WHIZBOT1/WHIZBOTMD\`\`\`\n\n`;
-    text += `🪩 *Our community:* \`\`\`https://chat.whatsapp.com/D4pphf7W3NbCDghqG0SJyz\`\`\`\n\n`;
-    text += `🪄 *Our channel:* \`\`\`https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l\`\`\`\n\n`;
+    // Message text
+    const text = `
+⭐️ *𝗭𝗲𝗿𝗼 𝗧𝘄𝗼 𝗕𝗼𝘁 𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝘆* ⭐️
 
-    const imageUrl = "https://telegra.ph/file/2f1c2e0cc22214a123719.jpg";
-    
-    await m.reply(text, { sendImage: true, image: imageUrl });
+👋 *Welcome to Zero Two Bot!*
+
+📜 *Description:*
+\`\`\`Zero Two Bot is designed to enhance your WhatsApp experience by providing a wide range of functionalities including group management, content downloads, logo creation, image editing, information searching, and more!\`\`\`
+
+⚠️ *Disclaimer:*
+\`\`\`Use this bot at your own risk. We are not responsible for any damage or banning of your WhatsApp account resulting from its usage.\`\`\`
+
+🌐 *Useful Links:*
+🔗 *Website:* [Click Here](https://chat.whatsapp.com/EwRThW9r76f1Ly0kvcnrZI)
+🔗 *GitHub:* [Repository Link](https://github.com/WHIZBOT1/WHIZBOTMD)
+🔗 *Community:* [Join Our Group](https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l)
+🔗 *Channel:* [Subscribe Here](https://youtube.com/@whizbot-bx9xh?si=BaEQmC9Px3XmkMGg)
+
+👨‍💻 *Developers:*
+\`\`\`JAY,𝐉𝐅𝐋𝐄𝐗&AKVID\`\`\`
+
+🔍 *Find out more:*
+Visit our website and GitHub to learn how to deploy and use the bot effectively!
+
+🖼️ *Image Preview Below*
+    `;
+
+    // Creating the message data
+    const messageData = {
+      image: Buffer.from(imageBuffer.data, 'binary'),
+      caption: text,
+    };
+
+    // Sending the message with the image
+    const message_options = {
+      quoted: m,
+      contextInfo: {
+        forwardingScore: 999,
+        isForwarded: true,
+      },
+    };
+
+    await m.bot.sendMessage(m.chat, messageData, message_options);
   } catch (error) {
     console.error("Error:", error);
   }
