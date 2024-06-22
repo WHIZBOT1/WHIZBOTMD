@@ -194,7 +194,7 @@ smd(
 
  smd(
   {
-    cmdname: "menu",
+    pattern: "menu",
     desc: "Access Zero Two's commands",
     react: "💕",
     type: "user",
