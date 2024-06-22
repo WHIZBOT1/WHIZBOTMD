@@ -157,7 +157,54 @@ smd({
   }
 });
 
+ smd(
+  {
+    pattern: "rps",
+    desc: "Play rock-paper-scissors with the bot.",
+    category: "games",
+    filename: __filename,
+    react: "✊✋✌️",
+  },
+  async (message, input) => {
+    try {
+      // Define the options for rock-paper-scissors
+      const options = ["rock", "paper", "scissors"];
 
+      // Randomly select the bot's choice
+      const botChoice = options[Math.floor(Math.random() * options.length)];
+
+      // Parse the user's choice from the input
+      const userChoice = input.toLowerCase();
+
+      // Check if the user's choice is valid
+      if (!options.includes(userChoice)) {
+        return await message.reply("Please choose either rock, paper, or scissors.");
+      }
+
+      // Determine the outcome of the game
+      let result;
+      if (userChoice === botChoice) {
+        result = "It's a tie!";
+      } else if (
+        (userChoice === "rock" && botChoice === "scissors") ||
+        (userChoice === "paper" && botChoice === "rock") ||
+        (userChoice === "scissors" && botChoice === "paper")
+      ) {
+        result = "You win!";
+      } else {
+        result = "Bot wins!";
+      }
+
+      // Compose the reply message
+      const replyMessage = `You chose ${userChoice}. Bot chose ${botChoice}. ${result}`;
+
+      // Send the reply message
+      return await message.reply(replyMessage);
+    } catch (error) {
+      await message.error(`${error}\n\nCommand: rps`, error);
+    }
+  }
+);
 // Random Question Command
 smd(
   {
