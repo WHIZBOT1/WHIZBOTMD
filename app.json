@@ -1,8 +1,8 @@
 {
-  "name": "whizbot-md",
+  "name": "Zero-two",
   "description": "Simple WhatsApp Bot",
-  "logo": "https://telegra.ph/file/24e2c2c0fcdcf17df52ac.jpg",
-  "keywords": "whizbot-Md",
+  "logo": "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
+  "keywords": "Zero-two",
   
   "env": {
     "HEROKU_API_KEY": {
@@ -17,13 +17,13 @@
     },
     "OWNER_NAME": {
       "description": "Name for Bot Owner",    
-      "value": "whizbot",
+      "value": "zero-two",
       "required" :true
     }, 
     "BOT_NAME": {
       "description": " NAME FOR BOT",
       "required" :false,    
-      "value": "whizbot-ᴍᴅ"
+      "value": "Zero-two"
     }, 
     "PREFIX": {
       "description": "Enter your desired prefix for bot. you can set `all | . | .!*`",
@@ -45,7 +45,7 @@
     "USER_IMAGES": {
       "description": "Image for bot",
       "required" :false,    
-      "value": "https://telegra.ph/file/9d326d390cebdb4543886.jpg,https://telegra.ph/file/2cad4cf3c25685ce06eeb.jpg,https://telegra.ph/file/4c7669c16aa23c5d905b9.jpg,https://telegra.ph/file/e38b047cb3bbda1b47ade.jpg,https://telegra.ph/file/5ab39d37ec03573d0ae12.jpg"
+      "value": "https://telegra.ph/file/ce66ecd73102b07b03751.jpg"
     }, 
     "TZ": {
       "description": "Put TIME_ZONE according to your location",
@@ -109,7 +109,7 @@
     },
     "PACK_NAME": {
       "description": "Put Sticker Pack_Name.",
-      "value": "whizbot-ᴍᴅ",
+      "value": "Zero-two-ᴍᴅ",
       "required": false 
     },
     "PACK_AUTHER": {
