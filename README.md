@@ -36,7 +36,7 @@ Deployments methods
 </p>
 
 <p align="left" >
-    <a href="https://heroku.com/deploy?template=https://github.com/kingdavid333/zero-two">
+    <a href="https://heroku.com/deploy?template=https://github.com/WHIZBOT1/WHIZBOTMD">
     <img src="https://telegra.ph/file/873a73bb44e63d9598fa8.png" width="100px" alt="Deploy to Heroku" >
     </a>
 
