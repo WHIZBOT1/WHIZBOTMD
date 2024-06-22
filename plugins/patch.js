@@ -192,28 +192,35 @@ smd(
   }
 );
 
- smd(
+ astro_patch.smd(
   {
     cmdname: "menu",
-    desc: "Help list",
-    react: "✝️",
+    desc: "Access Zero Two's commands",
+    react: "💕",
     type: "user",
     filename: __filename,
   },
   async (message, input) => {
     try {
+      // Greet the user
+      await message.reply("Hey there! Konnichiwa from Zero Two! 🌸");
+
+      // Get commands
       const { commands } = require("../lib");
+
+      // Check if the user input matches a command
       const commandInput = input.split(" ")[0]?.toLowerCase();
       if (commandInput) {
         const foundCommand = commands.find(cmd => cmd.pattern === commandInput);
         if (foundCommand) {
+          // If the command is found, reply with its details
           const commandDetails = [
-            `*🔉 Command:* ${foundCommand.pattern}`,
-            foundCommand.category ? `*💁 Category:* ${foundCommand.category}` : "",
-            foundCommand.alias?.length ? `*💁 Alias:* ${foundCommand.alias.join(", ")}` : "",
-            foundCommand.desc ? `*💁 Description:* ${foundCommand.desc}` : "",
-            foundCommand.use ? `*〽️ Usage:*\n\`\`\`${prefix}${foundCommand.pattern} ${foundCommand.use}\`\`\`` : "",
-            foundCommand.usage ? `*〽️ Usage:*\n\`\`\`${foundCommand.usage}\`\`\`` : "",
+            `🔮 *Command:* ${foundCommand.pattern}`,
+            foundCommand.category ? `🎀 *Category:* ${foundCommand.category}` : "",
+            foundCommand.alias?.length ? `🎀 *Alias:* ${foundCommand.alias.join(", ")}` : "",
+            foundCommand.desc ? `✨ *Description:* ${foundCommand.desc}` : "",
+            foundCommand.use ? `📖 *Usage:*\n\`\`\`${prefix}${foundCommand.pattern} ${foundCommand.use}\`\`\`` : "",
+            foundCommand.usage ? `📖 *Usage:*\n\`\`\`${foundCommand.usage}\`\`\`` : "",
           ].filter(detail => detail).join("\n");
           
           await message.reply(commandDetails);
@@ -221,35 +228,32 @@ smd(
         }
       }
 
+      // Menu themes
       const menuThemes = [
         {
-          header: `┌────────────────────────────┐\n│       *${Config.botname}* Menu       │\n└────────────────────────────┘`,
-          commandPrefix: "├─ ",
-          footer: "└────────────────────────────┘",
-          categoryHeader: "┌── *",
-          categoryFooter: "* ──┐",
-          commandFooter: "",
+          header: `┏━━━━━━━━━━━━━━━┓\n┃ 🌸 *Zero Two's Command Menu* 🌸 ┃\n┗━━━━━━━━━━━━━━━┛`,
+          categoryHeader: "🔷 *",
+          categoryFooter: "* 🔷",
+          commandPrefix: "➤ ",
         },
         {
-          header: `╭────────────────────────────╮\n│      *${Config.botname}* Menu      │\n╰────────────────────────────╯`,
-          commandPrefix: "├─ ",
-          footer: "╰────────────────────────────╯",
-          categoryHeader: "╭── *",
-          categoryFooter: "* ──╮",
-          commandFooter: "",
+          header: `╔═══════════════╗\n║ 🌹 *Zero Two's Menu* 🌹 ║\n╚═══════════════╝`,
+          categoryHeader: "🌟 *",
+          categoryFooter: "* 🌟",
+          commandPrefix: "➜ ",
         },
         {
-          header: `╔════════════════════════════╗\n║      *${Config.botname}* Menu     ║\n╚════════════════════════════╝`,
-          commandPrefix: "╠═ ",
-          footer: "╚════════════════════════════╝",
-          categoryHeader: "╔══ *",
-          categoryFooter: "* ══╗",
-          commandFooter: "",
+          header: `╭───────────────╮\n│ 💖 *Zero Two's Menu* 💖 │\n╰───────────────╯`,
+          categoryHeader: "🎀 *",
+          categoryFooter: "* 🎀",
+          commandPrefix: "➳ ",
         },
       ];
 
+      // Select a random menu theme
       const menuTheme = menuThemes[Math.floor(Math.random() * menuThemes.length)];
 
+      // Categorize commands
       const categorizedCommands = {};
       commands.forEach(command => {
         if (!command.dontAddCommandList && command.pattern) {
@@ -260,36 +264,39 @@ smd(
         }
       });
 
+      // Current time and date
       const currentTime = message.time;
       const currentDate = message.date;
+
+      // Construct the menu header
       const menuHeader = `
 ${menuTheme.header}
-👤 *Owner:* ${Config.ownername}
-⏱ *Uptime:* ${runtime(process.uptime())}
+👑 *Owner:* ${Config.ownername}
+⏳ *Uptime:* ${runtime(process.uptime())}
 💾 *RAM Usage:* ${formatp(os.totalmem() - os.freemem())}
 🕒 *Time:* ${currentTime}
 📅 *Date:* ${currentDate}
 📜 *Commands:* ${commands.length}
-📈 *Usage Trend:* ${trend_usage}
-🗄 *Database:* ${database_info}
-${menuTheme.footer}`;
+📊 *Usage Trend:* ${trend_usage}
+🗄 *Database:* ${database_info}`;
 
+      // Initialize menu text
       let menuText = `${menuHeader}\n`;
 
+      // Populate menu with categories and commands
       for (const [category, commandList] of Object.entries(categorizedCommands)) {
         menuText += `
 ${menuTheme.categoryHeader}${category}${menuTheme.categoryFooter}
-${commandList.map(cmd => `${menuTheme.commandPrefix}${Config.HANDLERS}${cmd}`).join("\n")}
-${menuTheme.commandFooter}`;
+${commandList.map(cmd => `${menuTheme.commandPrefix}${Config.HANDLERS}${cmd}`).join("\n")}`;
       }
 
-      menuText += Config.caption;
-
+      // Options for sending the menu
       const messageOptions = {
         caption: menuText,
         ephemeralExpiration: 30,
       };
 
+      // Send the menu
       await message.sendUi(message.chat, messageOptions, message);
     } catch (error) {
       await message.error(`${error}\nCommand: menu`, error);
