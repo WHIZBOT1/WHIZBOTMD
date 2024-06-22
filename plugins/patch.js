@@ -505,7 +505,7 @@ smd(
       const designs = [
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/1b27ed897c3a78bbd70c7.jpg",
+            "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -522,13 +522,13 @@ smd(
           const quoteText = `\n\n*"${quote.result.body}"*\n_- ${quote.result.author}_`;
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\n 𝑊𝛨𝛪𝛧𝐵𝛩𝑇`;
+          const captionText = `𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\n 𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 `;
 
           return { image: imageBuffer.data, caption: captionText };
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/1b27ed897c3a78bbd70c7.jpg",
+            "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -544,13 +544,13 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\n𝑊ℎ𝑖𝑧-𝑀𝐷`;
+          const captionText = `𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nZERO-TWO-𝑀𝐷`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/3030fdd0f5baa9890c7df.jpg",
+            "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -566,37 +566,11 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝑊𝛨𝛪𝛧𝐵𝛩𝑇 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n 𝑊ℎ𝑖𝑧-𝑀𝐷`;
+          const captionText = `𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 `;
 
           return { image: imageBuffer.data, caption: captionText };
         }, 
       ];
-
-      const randomDesign = designs[Math.floor(Math.random() * designs.length)];
-      const messageData = await randomDesign();
-
-      const message_options = {
-        quoted: message,
-        contextInfo: {
-          forwardingScore: 999,
-          isForwarded: true,
-        },
-      };
-
-      return await message.bot.sendMessage(
-        message.chat,
-        messageData,
-        message_options
-      );
-    } catch (error) {
-      await message.error(
-        error + "\n\nCommand: alive",
-        error,
-        "*Failed to show status.*"
-      );
-    }
-  }
-);
 smd(
   {
     pattern: "runtime",
