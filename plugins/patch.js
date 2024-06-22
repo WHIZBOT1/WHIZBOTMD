@@ -192,7 +192,7 @@ smd(
   }
 );
 
- astro_patch.smd(
+ smd(
   {
     cmdname: "menu",
     desc: "Access Zero Two's commands",
