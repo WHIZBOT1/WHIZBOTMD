@@ -505,7 +505,7 @@ smd(
       const designs = [
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
+            "https://telegra.ph/file/4ae9c6e0de8d78cd62ef9.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -528,7 +528,7 @@ smd(
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
+            "https://telegra.ph/file/4ae9c6e0de8d78cd62ef9.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -544,13 +544,13 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nZERO-TWO-𝑀𝐷`;
+          const captionText = `WHIZBOT 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nZERO-TWO-𝑀𝐷`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/ce66ecd73102b07b03751.jpg",
+            "https://telegra.ph/file/4ae9c6e0de8d78cd62ef9.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -566,7 +566,7 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 `;
+          const captionText = `WHIZBOTMD 2.0.0 𝛲𝛥𝑇𝐶𝛨\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n𝗭𝗘𝗥𝗢-𝗧𝗪𝗢 `;
 
           return { image: imageBuffer.data, caption: captionText };
         }, 
