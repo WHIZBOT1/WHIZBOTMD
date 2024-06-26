@@ -195,7 +195,7 @@ smd(
  smd(
   {
     pattern: "menu",
-    desc: "Access Zero Two's commands",
+    desc: "Access whizbot Two's commands",
     react: "💕",
     type: "user",
     filename: __filename,
@@ -203,7 +203,7 @@ smd(
   async (message, input) => {
     try {
       // Greet the user
-      await message.reply("Hey there! Konnichiwa from Zero Two! 🌸");
+      await message.reply("whizbot menu list🍀");
 
       // Get commands
       const { commands } = require("../lib");
