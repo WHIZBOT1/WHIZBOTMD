@@ -37,7 +37,7 @@
   <a href="https://railway.app/template/GZOvIe?referralCode=wVDLrh">
     <img src="https://img.shields.io/badge/railway-3e164f?style=for-the-badge&logo=railway&logoColor=0B0D0E">
   </a>
-  <a href="https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fkingjux%2Fvenocyber-md">
+  <a href=" https://heroku.com/deploy?template=https://github.com/WHIZBOT1/WHIZBOTMD">
     <img src="https://img.shields.io/badge/heroku-9d7acc?style=for-the-badge&logo=heroku&logoColor=430098">
   </a>
   <a href="https://venocyber-web01.vercel.app/replit.html">
