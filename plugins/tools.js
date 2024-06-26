@@ -75,9 +75,9 @@ smd({
 
     // Message text
     const text = `
-⭐️ *𝗭𝗲𝗿𝗼 𝗧𝘄𝗼 𝗕𝗼𝘁 𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝘆* ⭐️
+⭐️ *whizbot  repsository* ⭐️
 
-👋 *Welcome to Zero Two Bot!*
+👋 *Welcome to whizbot-md!*
 
 📜 *Description:*
 \`\`\`Zero Two Bot is designed to enhance your WhatsApp experience by providing a wide range of functionalities including group management, content downloads, logo creation, image editing, information searching, and more!\`\`\`
@@ -92,7 +92,7 @@ smd({
 🔗 *Channel:* [Subscribe Here](https://youtube.com/@whizbot-bx9xh?si=BaEQmC9Px3XmkMGg)
 
 👨‍💻 *Developers:*
-\`\`\`JAY,𝐉𝐅𝐋𝐄𝐗&AKVID\`\`\`
+\`\`\`JAY,𝐉𝐅𝐋𝐄𝐗\`\`\`
 
 🔍 *Find out more:*
 Visit our website and GitHub to learn how to deploy and use the bot effectively!
