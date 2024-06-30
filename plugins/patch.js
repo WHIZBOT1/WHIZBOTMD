@@ -191,7 +191,6 @@ smd(
 );
 const { commands } = require("../lib");
 
-
 smd({
   cmdname: "menu",
   desc: "📃 Show all available commands",
@@ -203,16 +202,16 @@ smd({
     // Define themes
     const themes = [
       {
-        header: "🤖*Bot Command Menu* 🤖",
-        footer: "🔚 *End of Menu* 🔚",
-        categoryHeader: "📂 *Category:*",
+        header: "🤖 Bot Command Menu 🤖",
+        footer: "WHIZBOT.INC🤖",
+        categoryHeader: "📂 Category:",
         commandPrefix: "🔹",
         image: "https://telegra.ph/file/7a18a0f57302c03be33a0.jpg",
       },
       {
-        header: "🤖*Bot Command Menu* 🤖",
-        footer: "🔚 *End of Menu* 🔚",
-        categoryHeader: "📂 *Category:*",
+        header: "🤖 Bot Command Menu 🤖",
+        footer: "WHIZBOT.INC🤖",
+        categoryHeader: "📂 Category:",
         commandPrefix: "🔹",
         image: "https://telegra.ph/file/e9780ee9c3a84c2817e41.jpg",
       }
@@ -226,13 +225,29 @@ smd({
       responseType: "arraybuffer",
     });
 
+    // Border characters
+    const topBorder = "╔══════════════════════════════════════════════════╗";
+    const bottomBorder = "╚══════════════════════════════════════════════════╝";
+    const sideBorder = "║";
+    const emptyLine = `${sideBorder}                                              ${sideBorder}`;
+
+    // Function to pad text within the border
+    const padText = (text, length = 46) => {
+      const padding = length - text.length;
+      return text + ' '.repeat(padding);
+    };
+
     // Prepare menu text
     let menuText = `
-${selectedTheme.header}
-*🕒 Time:* ${new Date().toLocaleTimeString()}
-*📅 Date:* ${new Date().toLocaleDateString()}
-*🔢 Total Commands:* ${commands.length}
-${selectedTheme.footer}`;
+${topBorder}
+${sideBorder} ${padText(selectedTheme.header)} ${sideBorder}
+${sideBorder} ${padText(`*🕒 Time:* ${new Date().toLocaleTimeString()}`)} ${sideBorder}
+${sideBorder} ${padText(`*📅 Date:* ${new Date().toLocaleDateString()}`)} ${sideBorder}
+${sideBorder} ${padText(`*🔢 Total Commands:* ${commands.length}`)} ${sideBorder}
+${bottomBorder}
+${sideBorder} ${padText(selectedTheme.footer)} ${sideBorder}
+${sideBorder} ${padText("Powered by KING B2K ✓")} ${sideBorder}
+${bottomBorder}`;
 
     const categorizedCommands = {};
     commands.forEach((command) => {
