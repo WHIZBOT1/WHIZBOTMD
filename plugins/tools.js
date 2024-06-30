@@ -69,7 +69,7 @@ smd({
 }, async (m) => {
   try {
     // Fetching the image as a buffer
-    const imageBuffer = await axios.get("https://telegra.ph/file/f06bc8336970db46f71f9.jpg", {
+    const imageBuffer = await axios.get("https://telegra.ph/file/dc28c37ba25ba75cd9704.jpg", {
       responseType: "arraybuffer",
     });
 
@@ -86,10 +86,10 @@ smd({
 \`\`\`Use this bot at your own risk. We are not responsible for any damage or banning of your WhatsApp account resulting from its usage.\`\`\`
 
 🌐 *Useful Links:*
-🔗 *Website:* [Click Here](https://chat.whatsapp.com/EwRThW9r76f1Ly0kvcnrZI)
-🔗 *GitHub:* [Repository Link](https://github.com/WHIZBOT1/WHIZBOTMD)
-🔗 *Community:* [Join Our Group](https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l)
-🔗 *Channel:* [Subscribe Here](https://youtube.com/@whizbot-bx9xh?si=BaEQmC9Px3XmkMGg)
+🔗 *Website:* Click Here(https://chat.whatsapp.com/EwRThW9r76f1Ly0kvcnrZI)
+🔗 *GitHub:* Repository Link(https://github.com/WHIZBOT1/WHIZBOTMD)
+🔗 *Community:* Join Our Group(https://whatsapp.com/channel/0029VacWsSl3LdQOmWZrBj0l)
+🔗 *Channel:* Subscribe Here(https://youtube.com/@whizbot-bx9xh?si=BaEQmC9Px3XmkMGg)
 
 👨‍💻 *Developers:*
 \`\`\`JAY,𝐉𝐅𝐋𝐄𝐗\`\`\`
