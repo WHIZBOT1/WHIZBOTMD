@@ -189,168 +189,90 @@ smd(
     }
   }
 );
-astro_patch.smd(
-  {
-    cmdname: "menu",
-    desc: "Help list",
-    react: "📃",
-    desc: "To show all avaiable commands.",
-    type: "user",
-    filename: __filename,
-  },
-  async (message, input) => {
-    try {
-      const { commands } = require("../lib");
-      if (input.split(" ")[0]) {
-        let commandDetails = [];
-        const foundCommand = commands.find(
-          (cmd) => cmd.pattern === input.split(" ")[0].toLowerCase()
-        );
-        if (foundCommand) {
-          commandDetails.push("*🔉Command:* " + foundCommand.pattern);
-          if (foundCommand.category) {
-            commandDetails.push("*💁Category:* " + foundCommand.category);
-          }
-          if (foundCommand.alias && foundCommand.alias[0]) {
-            commandDetails.push("*💁Alias:* " + foundCommand.alias.join(", "));
-          }
-          if (foundCommand.desc) {
-            commandDetails.push("*💁Description:* " + foundCommand.desc);
-          }
-          if (foundCommand.use) {
-            commandDetails.push(
-              "*〽️Usage:*\n ```" +
-                prefix +
-                foundCommand.pattern +
-                " " +
-                foundCommand.use +
-                "```"
-            );
-          }
-          if (foundCommand.usage) {
-            commandDetails.push(
-              "*〽️Usage:*\n ```" + foundCommand.usage + "```"
-            );
-          }
-          await message.reply(commandDetails.join("\n"));
+const { commands } = require("../lib");
+
+
+smd({
+  cmdname: "menu",
+  desc: "📃 Show all available commands",
+  react: "🍀",
+  type: "user",
+  filename: __filename,
+}, async (message, input) => {
+  try {
+    // Define themes
+    const themes = [
+      {
+        header: "🤖*Bot Command Menu* 🤖",
+        footer: "🔚 *End of Menu* 🔚",
+        categoryHeader: "📂 *Category:*",
+        commandPrefix: "🔹",
+        image: "https://telegra.ph/file/7a18a0f57302c03be33a0.jpg",
+      },
+      {
+        header: "🤖*Bot Command Menu* 🤖",
+        footer: "🔚 *End of Menu* 🔚",
+        categoryHeader: "📂 *Category:*",
+        commandPrefix: "🔹",
+        image: "https://telegra.ph/file/e9780ee9c3a84c2817e41.jpg",
+      }
+    ];
+
+    // Select a random theme
+    const selectedTheme = themes[Math.floor(Math.random() * themes.length)];
+
+    // Fetching the image as a buffer
+    const imageBuffer = await axios.get(selectedTheme.image, {
+      responseType: "arraybuffer",
+    });
+
+    // Prepare menu text
+    let menuText = `
+${selectedTheme.header}
+*🕒 Time:* ${new Date().toLocaleTimeString()}
+*📅 Date:* ${new Date().toLocaleDateString()}
+*🔢 Total Commands:* ${commands.length}
+${selectedTheme.footer}`;
+
+    const categorizedCommands = {};
+    commands.forEach((command) => {
+      if (!command.dontAddCommandList && command.pattern) {
+        if (!categorizedCommands[command.category]) {
+          categorizedCommands[command.category] = [];
         }
+        categorizedCommands[command.category].push(command.pattern);
       }
+    });
 
-      let menuThemeType;
-      let menuThemeHeader;
-      let menuThemeFooter;
-      let menuThemeCategoryHeader;
-      let menuThemeCategoryFooter;
-      let menuThemeCommandPrefix;
-      let menuThemeCommandFooter;
-
-      if (Config.menu === "") {
-        menuThemeType = Math.floor(Math.random() * 4) + 1;
-      }
-
-      if (
-        menuThemeType === 1 ||
-        Config.menu.trim().startsWith("1") ||
-        Config.menu.toLowerCase().includes("menu1")
-      ) {
-        menuThemeHeader = "╭━━━〔 *" + Config.botname + "* 〕━━━┈⊷";
-        menuThemeCommandPrefix = "┃✵│";
-        menuThemeFooter = "┃✵╰──────────────\n╰━━━━━━━━━━━━━━━┈⊷";
-        menuThemeCategoryHeader = "╭─────────────┈⊷\n│「";
-        menuThemeCategoryFooter = "」\n╰┬────────────┈⊷";
-        menuThemeCommandPrefix = "││◦➛";
-        menuThemeCommandFooter = "│╰────────────┈⊷\n╰─────────────┈⊷";
-      } else if (
-        menuThemeType === 2 ||
-        Config.menu.trim().startsWith("2") ||
-        Config.menu.toLowerCase().includes("menu2")
-      ) {
-        menuThemeHeader =
-          "╭═══ *" + Config.botname + "* ═══⊷\n┃❃╭──────────────";
-        menuThemeCommandPrefix = "┃❃│";
-        menuThemeFooter = "┃❃╰───────────────\n╰═════════════════⊷";
-        menuThemeCategoryHeader = "╭─❏";
-        menuThemeCategoryFooter = "❏";
-        menuThemeCommandPrefix = "┃❃│";
-        menuThemeCommandFooter = "┃❃╰───────────────\n╰═════════════════⊷";
-      } else {
-        menuThemeHeader = "╭〘  " + Config.botname + "  〙";
-        menuThemeCommandPrefix = "│ │";
-        menuThemeFooter = "╰═══════════════⊷";
-        menuThemeCategoryHeader = "╭─❍";
-        menuThemeCategoryFooter = "══⊷❍";
-        menuThemeCommandPrefix = "│";
-        menuThemeCommandFooter = "╰════════════─⊷";
-      }
-
-      const categorizedCommands = {};
-      commands.map(async (command) => {
-        if (
-          command.dontAddCommandList === false &&
-          command.pattern !== undefined
-        ) {
-          if (!categorizedCommands[command.category]) {
-            categorizedCommands[command.category] = [];
-          }
-          categorizedCommands[command.category].push(command.pattern);
-        }
+    for (const category in categorizedCommands) {
+      menuText += `
+${selectedTheme.categoryHeader} *${category}*\n`;
+      categorizedCommands[category].forEach((command) => {
+        menuText += `${selectedTheme.commandPrefix} ${command}\n`;
       });
-
-      const currentTime = message.time;
-      const currentDate = message.date;
-      let menuText = `
-${menuThemeHeader}
-${menuThemeCommandPrefix} *ᴏᴡɴᴇʀ:* ${Config.ownername}
-${menuThemeCommandPrefix} *ᴜᴘᴛɪᴍᴇ:* ${runtime(process.uptime())}
-${menuThemeCommandPrefix} *ʀᴀᴍ ᴜsᴀɢᴇ:* ${formatp(os.totalmem() - os.freemem())}
-${menuThemeCommandPrefix} *ᴛɪᴍᴇ:* ${currentTime}
-${menuThemeCommandPrefix} *ᴅᴀᴛᴇ:* ${currentDate}
-${menuThemeCommandPrefix} *ᴄᴏᴍᴍᴀɴᴅs:* ${commands.length}
-${menuThemeCommandPrefix} *ᴜsᴀɢᴇ ᴛʀᴇɴᴅ:* ${trend_usage}
-${menuThemeCommandPrefix} *ᴅᴀᴛᴀʙᴀsᴇ:* ${database_info}
-${menuThemeFooter}                         
-*ᴀsᴛᴀ ᴘᴀᴛᴄʜ 𝟸.𝟶.𝟶*
-${readmore}`;
-
-      for (const category in categorizedCommands) {
-        menuText += `
-        ${menuThemeCategoryHeader} *${tiny(
-          category
-        )}* ${menuThemeCategoryFooter}\n`;
-        if (input.toLowerCase() === category.toLowerCase()) {
-          menuText = `${menuThemeCategoryHeader} *${tiny(
-            category
-          )}* ${menuThemeCategoryFooter}\n`;
-          for (const command of categorizedCommands[category]) {
-            menuText += `${menuThemeCommandPrefix} ${Config.HANDLERS} ${tiny(
-              command,
-              1
-            )}\n`;
-          }
-          menuText += `${menuThemeCommandFooter}\n`;
-          break;
-        } else {
-          for (const command of categorizedCommands[category]) {
-            menuText += `${menuThemeCommandPrefix} ${Config.HANDLERS} ${tiny(
-              command,
-              1
-            )}\n`;
-          }
-          menuText += `${menuThemeCommandFooter}\n`;
-        }
-      }
-      menuText += Config.caption;
-
-      const messageOptions = {
-        caption: menuText,
-        ephemeralExpiration: 30,
-      };
-      return await message.sendUi(message.chat, messageOptions, message);
-    } catch (error) {
-      await message.error(error + "\nCommand: menu", error);
+      menuText += `\n`;
     }
+
+    // Creating the message data
+    const messageData = {
+      image: Buffer.from(imageBuffer.data, 'binary'),
+      caption: menuText,
+    };
+
+    // Sending the message with the image
+    const message_options = {
+      quoted: message,
+      contextInfo: {
+        forwardingScore: 999,
+        isForwarded: true,
+      },
+    };
+
+    await message.bot.sendMessage(message.chat, messageData, message_options);
+  } catch (error) {
+    await message.reply(`❌ Error: ${error.message}`);
   }
-);
+});
 smd(
   {
     pattern: "menus",
