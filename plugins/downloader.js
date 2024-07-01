@@ -1497,3 +1497,60 @@ smd({
     console[_0x38a391(217)](_0x4bcd8f);
   }
 });
+
+let lastReplyTime = 0;
+
+smd({ on: "text" }, async (message) => {
+  try {
+    if (message.body.toLowerCase() === "whizbot") {
+      const currentTime = Date.now();
+      const timeDifference = currentTime - lastReplyTime;
+
+      if (timeDifference > 0) {
+        // Fetching the video as a buffer
+        const videoBuffer = await axios.get("https://telegra.ph/file/801eb6baffb375958a714.mp4", {
+          responseType: "arraybuffer",
+        });
+
+        // Creating the message data
+        const messageData = {
+          video: Buffer.from(videoBuffer.data, 'binary'),
+          mimetype: "video/mp4",
+          caption: "Welcome to Whizbot, your WhatsApp user bot. To get started, type .menu",
+        };
+
+        // Sending the message with the video
+        const messageOptions = {
+          quoted: message,
+          contextInfo: {
+            forwardingScore: 999,
+            isForwarded: true,
+          },
+        };
+
+        await message.bot.sendMessage(message.chat, messageData, messageOptions);
+        lastReplyTime = currentTime; // Update the last reply time
+      }
+    }
+  } catch (error) {
+    console.error("Error processing 'whizbot' command:", error);
+  }
+});
+
+
+smd({ on: "text" }, async (message) => {
+  try {
+    if (message.body.toLowerCase() === "hi") {
+      const currentTime = Date.now();
+      const timeDifference = currentTime - lastReplyTime;
+
+      if (timeDifference > 0) {
+        await message.reply("Hello there! How can I help you today? type .menu to get started🍀");
+        lastReplyTime = currentTime;
+      }
+    }
+  } catch (error) {
+    console.error("Error processing 'hi' command:", error);
+  }
+});
+
