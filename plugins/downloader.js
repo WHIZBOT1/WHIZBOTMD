@@ -1507,7 +1507,7 @@ smd({ on: "text" }, async (message) => {
 
       if (timeDifference > 0) {
         // Fetching the video as a buffer
-        const videoBuffer = await axios.get("https://telegra.ph/file/801eb6baffb375958a714.mp4", {
+        const videoBuffer = await axios.get("https://telegra.ph/file/f7c35b989586049fe3d76.mp4", {
           responseType: "arraybuffer",
         });
 
