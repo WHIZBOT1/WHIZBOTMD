@@ -1535,7 +1535,7 @@ smd({ on: "text" }, async (message) => {
     console.error("Error processing 'whizbot' command:", error);
   }
 });
-let lastReplyTime = 0;
+
 
 smd({ on: "text" }, async (message) => {
   try {
