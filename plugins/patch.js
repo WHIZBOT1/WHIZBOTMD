@@ -178,7 +178,7 @@ smd(
           }
         }
 
-        return await message.send("`ASTA MD UPDATE WAS SUCCESSFULL ✅`");
+        return await message.send("`MALIK MD UPDATE WAS SUCCESSFULL ✅`");
       } else {
         return await message.send(
           "*Auto Updated Failed, Unable to Download Update Please Manually Do It*"
@@ -194,7 +194,7 @@ const { commands } = require("../lib");
 smd({
   cmdname: "menu",
   desc: "📃 Show all available commands",
-  react: "🍀",
+  react: "🌐",
   type: "user",
   filename: __filename,
 }, async (message, input) => {
@@ -202,18 +202,18 @@ smd({
     // Define themes
     const themes = [
       {
-        header: "🤖 Bot Command Menu 🤖",
-        footer: "WHIZBOT.INC🤖",
-        categoryHeader: "📂 Category:",
-        commandPrefix: "🔹",
-        image: "https://telegra.ph/file/7a18a0f57302c03be33a0.jpg",
+        header: "𝚳𝚫𝐋𝚰𝐊'𝐒 𝚸𝚵𝚪𝐒𝚯𝚴𝚫𝐋 𝐖𝚫 𝚩𝚯𝚻",
+        footer: "𝚳𝚫𝐋𝚰𝐊-𝚩𝚯𝚻",
+        categoryHeader: "📂 𝗧𝘆𝗽𝗲:",
+        commandPrefix: "🚀",
+        image: "https://telegra.ph/file/f9e757faeb79f18bf3857.jpg",
       },
       {
-        header: "🤖 Bot Command Menu 🤖",
-        footer: "WHIZBOT.INC🤖",
-        categoryHeader: "📂 Category:",
-        commandPrefix: "🔹",
-        image: "https://telegra.ph/file/e9780ee9c3a84c2817e41.jpg",
+        header: "𝐌𝐀𝐋𝐈𝐊 𝐌𝐄𝐇𝐓𝐀𝐁",
+        footer: "⚠️𝐃𝚫𝚴𝐆𝚵𝚪𝚯𝐔𝐒 𝚩𝚯𝚻⚠️",
+        categoryHeader: "🅲🅰🆃🅴🅶🅾🆁🆈:",
+        commandPrefix: "🛸",
+        image: "https://telegra.ph/file/f9e757faeb79f18bf3857.jpg",
       }
     ];
 
@@ -226,8 +226,8 @@ smd({
     });
 
     // Border characters
-    const topBorder = "╔══════════════════════════════════════════════════╗";
-    const bottomBorder = "╚══════════════════════════════════════════════════╝";
+    const topBorder = "════════════════════════════════════";
+    const bottomBorder = "════════════════════════════════════";
     const sideBorder = "║";
     const emptyLine = `${sideBorder}                                              ${sideBorder}`;
 
@@ -239,14 +239,14 @@ smd({
 
     // Prepare menu text
     let menuText = `
-${topBorder}
+${topBorder}  Ⓜ🅰🅻🅸🅺 🅼🅴🅷🆃🅰🅱
 ${sideBorder} ${padText(selectedTheme.header)} ${sideBorder}
-${sideBorder} ${padText(`*🕒 Time:* ${new Date().toLocaleTimeString()}`)} ${sideBorder}
-${sideBorder} ${padText(`*📅 Date:* ${new Date().toLocaleDateString()}`)} ${sideBorder}
-${sideBorder} ${padText(`*🔢 Total Commands:* ${commands.length}`)} ${sideBorder}
+${sideBorder} ${padText(`𝚻𝚰𝚳𝚵 ${new Date().toLocaleTimeString()}`)} ${sideBorder}
+${sideBorder} ${padText(`𝐃𝚫𝚻𝚵  ${new Date().toLocaleDateString()}`)} ${sideBorder}
+${sideBorder} ${padText(`𝚻𝚯𝚻𝚫𝐋 𝐂𝚯𝚳𝚳𝚯𝚴𝐃𝐒 ${commands.length}`)} ${sideBorder}
 ${bottomBorder}
 ${sideBorder} ${padText(selectedTheme.footer)} ${sideBorder}
-${sideBorder} ${padText("Powered by KING B2K ✓")} ${sideBorder}
+${sideBorder} ${padText("")} ${sideBorder}
 ${bottomBorder}`;
 
     const categorizedCommands = {};
