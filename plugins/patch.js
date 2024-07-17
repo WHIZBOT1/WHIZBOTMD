@@ -489,7 +489,7 @@ smd(
       const designs = [
         async () => {
           const imageBuffer = await axios.get(
-            "https://i.imgur.com/z20pSwu.jpeg",
+            "https://telegra.ph/file/4927bf260e9f278ab396f.jpg,
             {
               responseType: "arraybuffer",
             }
@@ -506,13 +506,13 @@ smd(
           const quoteText = `\n\n*"${quote.result.body}"*\n_- ${quote.result.author}_`;
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `whizbot md patch 2.0.0\n\n*Ping:* ${pingSeconds} seconds${quoteText}\n\nwhizbot md`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://i.imgur.com/lIo3cM2.jpeg",
+            "https://telegra.ph/file/4927bf260e9f278ab396f.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -528,13 +528,13 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `whizbot md patch 2.0.0\n\n*Ping:* ${pingSeconds} seconds\n\n*Fact:*\n${fact.result.fact}\n\nwhizbot md`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://i.imgur.com/OQOH4Gn.jpeg",
+            "https://telegra.ph/file/4927bf260e9f278ab396f.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -550,7 +550,7 @@ smd(
 
           const end = new Date().getTime();
           const pingSeconds = (end - start) / 1000;
-          const captionText = `ᴀsᴛᴀ ᴍᴅ 𝟸.𝟶.𝟶 ᴘᴀᴛᴄʜ\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\nᴀsᴛᴀ ᴍᴅ`;
+          const captionText = `whizbot md patch 2.0.0\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\nwhizbot md`;
 
           return { image: imageBuffer.data, caption: captionText };
         },
@@ -599,7 +599,7 @@ smd(
 
       const cpuName = process.cpuData ? process.cpuData.modelName : "Unknown";
 
-      const message = `*Asta MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
+      const message = `*whizbot MD Running Since:*\n\n*Uptime:* ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n*RAM Usage:* ${ramUsage.toFixed(2)} MB\n*CPU Name:* ${cpuName}`;
 
       const button = [
         {
@@ -612,9 +612,9 @@ smd(
       const contextInfo = {
         isForwarded: true,
         forwardingScore: 999,
-        title: "Asta MD Running Since",
+        title: "whizbot MD Running Since",
         body: message,
-        footerText: "Asta MD 2024",
+        footerText: "whizbot MD 2024",
         isSendNotificationMsg: true,
         mentionedJid: [],
         buttons: button,
