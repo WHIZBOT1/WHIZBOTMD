@@ -103,4 +103,4 @@ If scan QR is not working, please try using pairing code. I am currently working
 
 <h2 align="center">NOTICE</h2>
 
-The bot is under-process by the owner. All the rights are reserved to the owner and the contributers to make the bot advance with the time and update the required commands to overcome challenges for the user to use the bot easily and smoothly. The bot will be completed soon and will have many commands which will help the user to get almost everything from the bot. Contributers are working to improve the bot.
+The bot is under-process by the owner and contributers. All the rights are reserved to the owner and the contributers to make the bot advance with the time and update the required commands to overcome challenges for the user to use the bot easily and smoothly. The bot will be completed soon and will have many commands which will help the user to get almost everything from the bot. Contributers are working to improve the bot.
